@@ -1,0 +1,14 @@
+.root {
+  background-color: brown;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+//   align-items: center;
+  .wrapper {
+    margin: 20px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: burlywood;
+    padding: 10px;
+  }
+}
