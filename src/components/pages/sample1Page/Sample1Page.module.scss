@@ -1,0 +1,9 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.card {
+  max-width: 345px;
+  margin: 0 10px;
+}

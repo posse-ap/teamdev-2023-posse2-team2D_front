@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { createSearchParams, useNavigate } from "react-router-dom";
+import styles from "./HomePage.module.scss";
 
-export const HomePage:React.VFC =() => {
+export const HomePage =() => {
 
   const navigate = useNavigate();
 
@@ -13,9 +14,11 @@ export const HomePage:React.VFC =() => {
 
   return (
     <>
+    <div className={styles.root}>
       <h1>Sample Home</h1>
       <nav>
         <ul>
+          <li><Link to="table">Table</Link></li>
           <li><Link to="page1">Sample Page1</Link></li>
           <li><Link to="page2">Sample Page2</Link></li>
           <li><Link to="page2?query1=value1&query2=value2">Sample Page2 With Query1</Link></li>
@@ -26,6 +29,7 @@ export const HomePage:React.VFC =() => {
 
         <button onClick={() => navigate("page4")}>Sample Page4</button>
       </nav>  
+    </div>
     </>
   );
 }
