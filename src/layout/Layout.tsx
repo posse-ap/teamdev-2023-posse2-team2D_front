@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
-import Footer from './Footer';
+// import Footer from './Footer';
 
 const Layout = () => {
   return (
@@ -12,13 +12,15 @@ const Layout = () => {
         <Header />
 
         {/* Main contents */}
-        <Box component="main" sx={{ paddingTop: 8 }}>
+        <Box component="main" sx={{ py: 12, "@media screen and (max-width:600px)": {
+        py: 8,
+    },}}>
           <Outlet />
         </Box>
       </Box>
 
       {/* Footer */}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
