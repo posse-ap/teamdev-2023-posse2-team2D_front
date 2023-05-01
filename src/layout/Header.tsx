@@ -34,7 +34,7 @@ const Header = () => {
             edge="start"
             color="inherit"
             aria-label="open drawer"
-            sx={{ mr: 2 }}
+            sx={{ mr: 2, "@media screen and (max-width:498px)": {mr: 0}}}
           >
             <MenuIcon 
             onClick={() => setDrawerOpened(true)}
@@ -51,8 +51,8 @@ const Header = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <Link to={'/'} style={{ textDecoration: 'none' }}>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1}}>
-                  <Avatar src={logo} alt="PeerPerk" />
-              <Typography sx={{ fontSize: 20, color: '#666666' }} >
+                  <Avatar src={logo}  sx={{"@media screen and (max-width:498px)": {width: 25, height: 25} }} alt="PeerPerk" />
+              <Typography sx={{ fontSize: 20, "@media screen and (max-width:498px)": {fontSize: 14}, color: '#666666' }} >
                 PeerPerk
               </Typography>
 
@@ -63,7 +63,7 @@ const Header = () => {
             variant="h6"
             noWrap
             component="div"
-            sx={{flexGrow: 0.05, display: { fontSize: 18, xs: 'none', sm: 'block' } }}
+            sx={{flexGrow: 0.07, display: { fontSize: 18, "@media screen and (max-width:660px)": {fontSize: 14}, xs: 'none', sm: 'block' } }}
           >
             獲得予定ポイント : 5000pt
           </Typography>
@@ -71,7 +71,7 @@ const Header = () => {
             variant="h6"
             noWrap
             component="div"
-            sx={{flexGrow: 0.01, display: { fontSize: 18, xs: 'none', sm: 'block' } }}
+            sx={{flexGrow: 0.01, display: { fontSize: 18, "@media screen and (max-width:660px)": {fontSize: 14},sm: 'block' } }}
           >
             所有ポイント : 5000pt
           </Typography>
