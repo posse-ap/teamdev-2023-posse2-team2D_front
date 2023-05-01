@@ -3,8 +3,8 @@ import styles from "./HomePage.module.scss";
 import { Avatar, AvatarGroup, Fab, Box, Grid, Card, CardActionArea, CardMedia, CardContent, Typography, Tab, Tabs } from "@mui/material";
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
-import event_default from '../../../event_default.jpg';
-import logo from '../../../logo.jpg';
+import event_default from '../../event_default.jpg';
+import logo from '../../logo.jpg';
 
 
 interface TabPanelProps {
@@ -507,7 +507,7 @@ export const HomePage = () => {
             {itemData.map((item) => (
               <Grid item xs={6} md={4} lg={3} key={item.id}>
                 <Card sx={{ maxWidth: 500 }}>
-                  <CardActionArea href={'page' + item.id}>
+                  <CardActionArea href={'item/' + item.id}>
                     <CardMedia
                       className={styles.card_img}
                       component="img"
@@ -546,31 +546,31 @@ export const HomePage = () => {
         margin: "auto",
       }}>
           <Grid container spacing={4}>
-            {knowledgeData.map((item) => (
-              <Grid item xs={6} md={4} lg={3} key={item.id}>
+            {knowledgeData.map((knowledge) => (
+              <Grid item xs={6} md={4} lg={3} key={knowledge.id}>
                 <Card sx={{ maxWidth: 500 }}>
-                  <CardActionArea href={'page' + item.id}>
+                  <CardActionArea href={'knowledge/' + knowledge.id}>
                     <CardMedia
                       className={styles.card_img}
                       component="img"
                       height="230"
-                      image={`${item.img ?? event_default }`}
+                      image={`${knowledge.img ?? event_default }`}
                       alt="ナレッジ画像"
                     />
-                    <BookmarkBorderIcon key={item.id} onClick={classToggle} className={active ? styles.save_icon2 : styles.save_icon} />
-                    <BookmarkIcon key={item.id} onClick={classToggle} className={active ? styles.save_icon : styles.save_icon2} />
+                    <BookmarkBorderIcon key={knowledge.id} onClick={classToggle} className={active ? styles.save_icon2 : styles.save_icon} />
+                    <BookmarkIcon key={knowledge.id} onClick={classToggle} className={active ? styles.save_icon : styles.save_icon2} />
                     <CardContent sx={{padding: 1}}>
                       <Typography sx={{fontsize: "18px"}} component="div" className={styles.item_title}>
-                        {item.title}
+                        {knowledge.title}
                       </Typography>
                       <Typography variant="body2" color="text.secondary" className={styles.item_author}>
-                      {item.author}
+                      {knowledge.author}
                       </Typography>
-                      <AvatarGroup total={item.participants?.length ?? 0} className={styles.avatar}>
-                        {(item.participants ?? []).map((participant: { name: string; img: string; })  => (
+                      <AvatarGroup total={knowledge.participants?.length ?? 0} className={styles.avatar}>
+                        {(knowledge.participants ?? []).map((participant: { name: string; img: string; })  => (
                           <Avatar alt={participant.name} src={participant.img} />
                         ))}
-                        {(!item.participants || item.participants.length === 0) && (
+                        {(!knowledge.participants || knowledge.participants.length === 0) && (
                           <Avatar alt="参加予定者0人" src={logo} />
                         )}
                       </AvatarGroup>

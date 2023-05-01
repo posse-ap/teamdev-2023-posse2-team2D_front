@@ -1,14 +1,17 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { HomePage } from "./components/pages/homePage/HomePage";
+import { HomePage } from "./pages/homePage/HomePage";
 import  Table  from "./components/Table";
-import { Sample1Page }  from "./components/pages/sample1Page/Sample1Page";
-import { Sample2Page } from "./components/pages/sample2Page/Sample2Page";
+import { Sample1Page }  from "./pages/sample1Page/Sample1Page";
+import { Sample2Page } from "./pages/sample2Page/Sample2Page";
 // import SamplePage3 from "./components/SamplePage3";
 import { SamplePage3 } from "./components/SamplePage3";
 import { SamplePage4, SamplePage4Child1, SamplePage4Child2, SamplePage4Child3 } from "./components/SamplePage4";
 import { NotFound } from "./components/NotFound";
-import Layout from './layout/Layout';
+import ItemDetail from './pages/item/ItemDetail';
+import KnowledgeDetail from './pages/knowledge/KnowledgeDetail';
+import Layout from "./layout/Layout";
+
 
 export const App =() => {
   return (
@@ -17,6 +20,8 @@ export const App =() => {
       <Routes>
         <Route path="" element={<Layout />}>
           <Route index element={<HomePage />} />
+          <Route path="item/:id" element={<ItemDetail />} />
+          <Route path="knowledge/:id" element={<KnowledgeDetail />} />
           <Route path="table" element={<Table />} />
           <Route path="page1" element={<Sample1Page />} />
           <Route path="page2" element={<Sample2Page />} />
