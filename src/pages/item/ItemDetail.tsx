@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./Item.module.scss";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import { Avatar, Box, Button, Typography } from "@mui/material";
+import { Avatar, Box, Button, Stack, TextField, Typography } from "@mui/material";
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import RestoreIcon from '@mui/icons-material/Restore';
 import logo from '../../logo.jpg';
 import { GridColDef, DataGrid } from "@mui/x-data-grid";
+import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: '取引ID', width: 70, align: 'right'},
@@ -23,7 +26,7 @@ type Item = {
   price: number;
   img: string[];
   title: string;
-  authorInfo: { id: number; name: string;};
+  authorInfo: { id: number; name: string; img: string;};
   comments?: { user_id: number; user_name: string; img: string; content: string;}[];
   transactions?: { id: number; start_date: string; points: number; lender: string; borrower: string; return_date: string;}[];
 };
@@ -37,7 +40,7 @@ const item: Item =
       "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
     ],
     title: "MacbookPro 2018 core i7 2.6GHz 16GB 512GB",
-    authorInfo: { id: 1, name: "かしけん" },
+    authorInfo: { id: 1, name: "かしけん", img: logo},
     comments: [
       {user_id: 1, user_name: "tarp", img: logo, content: "これってスペックいいほうなんですかね？"},
       {user_id: 2, user_name: "kashiken", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e", content: "これってスペックいいほうなんですかね？"},
@@ -80,6 +83,45 @@ const ItemDetail = () => {
     }
   }
 
+  // 1. 入力値の定義を作成
+  type Inputs = {
+    comment: string
+  }
+  // 2. useFormで必要な関数を取得し、デフォルト値を指定
+  const {
+    control,
+    handleSubmit,
+  } = useForm<Inputs>({
+  })
+ // 3. 検証ルールを指定
+  const validationRules = {
+    comment: {
+      required: 'コメントを入力してください。',
+      maxLength: { value: 200, message: '200文字以下で入力してください。' }
+    }
+  }
+ // 4. サブミット時の処理を作成
+ // 検証が成功すると呼び出され、引数で入力値が渡ってくる
+  const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
+    console.log(`submit: ${data.comment}`)
+  }
+
+  const [index, setIndex] = useState(0);
+  const previousImage = () => {
+    if (index === 0) {
+      setIndex(item.img.length - 1);
+    } else {
+      setIndex(index - 1);
+    }
+  };
+
+  const nextImage = () => {
+    if (index === item.img.length - 1) {
+      setIndex(0);
+    } else {
+      setIndex(index + 1);
+    }
+  };
 
   return (
     <div className={styles.root}>
@@ -87,22 +129,27 @@ const ItemDetail = () => {
         <ArrowBackIosIcon sx={{width: 16}} />
         戻る
       </Typography>
-      <Box className="product-detail" sx={{display: "flex"}}>
-        <Box className="left" sx={{display: "flex", width: "50%"}}>
-          <Box className="small_pictures" sx={{ mr: "20px" }}>
+      <Box sx={{display: "flex"}}>
+        <Box sx={{display: "flex", width: "50%"}}>
+          <Box sx={{ mr: "20px" }}>
           {item.img.map((img_child) => (
             <Box sx={{mb: 1}}>
-              <img src={img_child} alt="Product Image" style={{objectFit:'cover'}} height="77" width="77" />
+              <img src={img_child} alt="Product Image" style={{objectFit:'contain', backgroundColor: "#F5F5F5"}} height="77" width="77" />
             </Box>
           ))}
           </Box>
-          <Box className="big_picture_container">
-            <img src={item.img[0]} height="520" width="520" style={{objectFit:'cover'}} alt="Big Product Image" className="big_picture" />
+          <Box className={styles.big_picture}>
+            <ArrowBackIosNewIcon className={styles.arrow_back} onClick={previousImage} />
+            <img src={item.img[index]} height="100%" width="100%" style={{objectFit:'contain', backgroundColor: "#F5F5F5"}} alt={`Image ${index}`}/>
+            <ArrowForwardIosIcon className={styles.arrow_forward} onClick={nextImage}/>
+            <Typography sx={{fontsize: "14px"}} component="div" className={styles.img_index}>
+              {index + 1} / {item.img.length}
+            </Typography>
           </Box>
         </Box>
-        <Box className="right" sx={{ml: "70px", width: "40%"}} >
+        <Box sx={{ml: "70px", width: "40%"}} >
           <h1 style={{ margin: 0, fontSize: "28px", color: "#666666" }}>{item.title}</h1>
-          <Typography sx={{ my: 3, fontSize: "20px" }}>{item.price}pt</Typography>
+          <Typography sx={{ my: 2, fontSize: "20px" }}>{item.price}pt</Typography>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2}}>
             <Box sx={{ display: 'flex', flexDirection: "column", alignItems: 'center', gap: 1}}>
               <BookmarkBorderIcon sx={{width: 30, height: 30, "@media screen and (max-width:498px)": {width: 25, height: 25} }} />
@@ -128,32 +175,63 @@ const ItemDetail = () => {
           <Typography sx={{ fontSize: "16px", color: "#666666" }}>ちょっとdocker使えないかも、自分でインストールしといてください。値切りは受け付けません。</Typography>
           <Typography sx={{ mt: 3, fontSize: "20px", fontWeight: "bold", color: "#666666" }}>オーナー</Typography>
           <Link to={'../user/' + item.authorInfo.id}>
-            <Typography sx={{ fontSize: 18, "@media screen and (max-width:498px)": {fontSize: 14} }} >
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1}}>
+                <Avatar src={item.authorInfo.img}  sx={{"@media screen and (max-width:498px)": {width: 25, height: 25} }} alt="PeerPerk" />
+            <Typography sx={{ fontSize: 16, "@media screen and (max-width:498px)": {fontSize: 14} }} >
               {item.authorInfo.name}
             </Typography>
+            </Box>
           </Link>
           <Box id="comments">
             <Typography sx={{ mt: 3, mb: 1, fontSize: "20px", fontWeight: "bold", color: "#666666" }}>コメント({item.comments?.length ?? 0})</Typography>
             {(item.comments ?? []).map((comment: { user_id: number; user_name: string; img: string; content: string; })  => (
-              <Box sx={{ display: 'flex', flexDirection: "column"}}>
+              <Box sx={{ display: 'flex'}}>
                 <Link to={'../user/' + comment.user_id} style={{ textDecoration: 'none' }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1}}>
-                    <Avatar src={comment.img}  sx={{ width: 40, height: 40 ,"@media screen and (max-width:498px)": {width: 25, height: 25} }} alt="PeerPerk" />
-                    <Typography sx={{ fontSize: 20, "@media screen and (max-width:498px)": {fontSize: 14}, color: '#666666' }} >
+                  <Avatar src={comment.img}  sx={{ mr: 1, width: 40, height: 40 ,"@media screen and (max-width:498px)": {width: 25, height: 25} }} alt="PeerPerk" />
+                </Link>
+                <Link to={'../user/' + comment.user_id} style={{ textDecoration: 'none' }}>
+                  <Box sx={{ display: 'flex', flexDirection: "column"}}>
+                    <Typography sx={{ fontWeight: "bold", fontSize: 16, "@media screen and (max-width:498px)": {fontSize: 14}, color: '#666666' }} >
                     {comment.user_name}
+                    </Typography>
+                    <Typography sx={{ mx: "auto", mt: 1, mb: 2, p: 1, width: "100%", borderRadius: 1 , fontSize: 16, backgroundColor: "#eee", color: 'black' }} >
+                    {comment.content}
                     </Typography>
                   </Box>
                 </Link> 
-                <Typography sx={{ mx: "auto", mt: 1, mb: 2, p: 2, width: "80%", borderRadius: 1 , fontSize: 16, backgroundColor: "#ddd", color: 'black' }} >
-                {comment.content}
-                </Typography>
               </Box>
             ))}
+            <Stack component="form" noValidate 
+              onSubmit={handleSubmit(onSubmit)} 
+              spacing={1} sx={{ mt: 1, width: '100%' }}>
+              {/* 6.Controllerコンポーネントで TextFieldをReactHookFormと紐づけ*/}
+              <Typography sx={{ mb: 0, fontWeight: "bold", fontSize: "14px"}} >出品者へのコメント</Typography>
+              <Controller
+                name="comment"
+                control={control}
+                rules={validationRules.comment}
+                render={({ field, fieldState }) => (
+                  <TextField
+                    {...field}
+                    type="text"
+                    label="コメントを入力"
+                    error={fieldState.invalid}
+                    helperText={fieldState.error?.message}
+                    placeholder="コメントを入力してください。"
+                    multiline
+                    rows={4}
+                  />
+                )}
+              />
+              <Button variant="outlined" type="submit" style={{ fontWeight: "bold" , padding: "10px 0" ,marginTop: "20px"}} >
+                コメントを送信する
+              </Button>
+            </Stack>
           </Box>
         </Box>
       </Box>
       <Box id="transactions" style={{ margin: "0 auto", display: "flex", flexDirection: "column", height: 400, width: '70%' }}>
-        <Typography sx={{ mt: 3, mb: 2, fontSize: "20px", fontWeight: "bold", color: "#666666" }}>取引履歴({item.transactions?.length ?? 0})</Typography>
+        <Typography sx={{ mt: 5, mb: 2, fontSize: "20px", fontWeight: "bold", color: "#666666" }}>取引履歴({item.transactions?.length ?? 0})</Typography>
         <DataGrid
         sx={{ px: 3, textAlign: 'center'}}
         rows={item.transactions ?? []}
