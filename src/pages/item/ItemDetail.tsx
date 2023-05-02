@@ -11,6 +11,7 @@ import RestoreIcon from '@mui/icons-material/Restore';
 import logo from '../../logo.jpg';
 import { GridColDef, DataGrid } from "@mui/x-data-grid";
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
+import { useSnackbar } from "../../components/snackbar/Snackbar";
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: '取引ID', width: 70, align: 'right'},
@@ -64,6 +65,7 @@ const item: Item =
 
 const ItemDetail = () => {
 
+  const { showSnackbar } = useSnackbar()
   const navigate = useNavigate();
   const handleBack = () => {
     navigate(-1);
@@ -152,7 +154,8 @@ const ItemDetail = () => {
           <Typography sx={{ my: 2, fontSize: "20px" }}>{item.price}pt</Typography>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2}}>
             <Box sx={{ display: 'flex', flexDirection: "column", alignItems: 'center', gap: 1}}>
-              <BookmarkBorderIcon sx={{width: 30, height: 30, "@media screen and (max-width:498px)": {width: 25, height: 25} }} />
+              <BookmarkBorderIcon onClick={() => showSnackbar('ブックマークに追加しました！', 'success')} sx={{width: 30, height: 30, "@media screen and (max-width:498px)": {width: 25, height: 25} }} />
+              {/* <BookmarkBorderIcon onClick={() => showSnackbar('ブックマークから削除しました', 'info')} sx={{width: 30, height: 30, "@media screen and (max-width:498px)": {width: 25, height: 25} }} /> */}
               <Typography sx={{ fontSize: 10, "@media screen and (max-width:498px)": {fontSize: 12}, color: '#666666' }} >
                 ブックマーク
               </Typography>
@@ -223,7 +226,7 @@ const ItemDetail = () => {
                   />
                 )}
               />
-              <Button variant="outlined" type="submit" style={{ fontWeight: "bold" , padding: "10px 0" ,marginTop: "20px"}} >
+              <Button onClick={() => showSnackbar('コメントを送信しました！', 'success')} variant="outlined" type="submit" style={{ fontWeight: "bold" , padding: "10px 0" ,marginTop: "20px"}} >
                 コメントを送信する
               </Button>
             </Stack>
