@@ -7,6 +7,10 @@
     border-radius: 10px;
     background-color: burlywood;
     padding: 10px;
+    @media screen and (max-width:600px){
+      margin: 5px;
+      padding: 5px;
+    }
   }
   .card_img {
     position: relative;
@@ -53,6 +57,22 @@
     left: 0px;
     color: white;
     background-color: rgba(0, 0, 0, 0.503);
+    border-radius: 0px 15px 15px 0;
+    padding: 4px;
+    @media screen and (max-width:600px){
+      font-size: 14px;
+      width: 50px;
+    }
+  }
+  .state {
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    color: white;
+    background-color: rgba(253, 8, 8, 0.503);
     border-radius: 0px 15px 15px 0;
     padding: 4px;
     @media screen and (max-width:600px){

@@ -13,7 +13,7 @@ const Layout = () => {
 
         {/* Main contents */}
         <Box component="main" sx={{ px: 1, py: 12, "@media screen and (max-width:600px)": {
-        py: 8,
+        py: 8, px: 0
     },}}>
           <Outlet />
         </Box>
