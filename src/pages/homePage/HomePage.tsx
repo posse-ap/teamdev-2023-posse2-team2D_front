@@ -7,6 +7,8 @@ import event_default from '../../event_default.jpg';
 import logo from '../../logo.jpg';
 import SimpleTabs from "../../components/SimpleTabs";
 import { useSnackbar } from "../../components/snackbar/Snackbar";
+import KnowledgeUpload from "../knowledge/KnowledgeUpload";
+// import ItemUpload from "../item/ItemUpload";
 
 
 type ItemData = {
