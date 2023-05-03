@@ -1,13 +1,19 @@
-import * as React from "react";
+import React, {useState} from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import FullWidthTextField from "../../components/FullWidthTextField";
 // import MultilineTextField from "../../components/MultilineTextField";
 import Button from "@mui/material/Button";
+import { useSnackbar } from "../../components/snackbar/Snackbar";
 
 // フロント部分
 export default function ItemUpload() {
+  const { showSnackbar } = useSnackbar();
+  const [active, setActive] = useState(false);
+  const classToggle = () => {
+    setActive(!active)
+  }
   return (
     <React.Fragment>
       <CssBaseline />
@@ -25,7 +31,13 @@ export default function ItemUpload() {
         <FullWidthTextField label="詳細" rows={4} helperText="色、素材、定価、重さ、注意点など" />
         <Button
         variant="contained"
-        >貸し出し申請</Button>
+        // key={item.id}
+        onClick={(event) => {
+          event.preventDefault();
+          classToggle();
+          showSnackbar('登録が完了しました！', 'success');}}
+        >
+        貸し出し申請</Button>
       </Container>
     </React.Fragment>
   );
