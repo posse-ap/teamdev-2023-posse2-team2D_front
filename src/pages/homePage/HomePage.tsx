@@ -7,7 +7,6 @@ import event_default from '../../event_default.jpg';
 import logo from '../../logo.jpg';
 import SimpleTabs from "../../components/SimpleTabs";
 import { useSnackbar } from "../../components/snackbar/Snackbar";
-import ItemUpload from "../item/ItemUpload";
 
 
 type ItemData = {
@@ -518,7 +517,6 @@ export const HomePage = () => {
         width: "100%", } }}>
       <SimpleTabs labels={['商品', 'ナレッジ']}>
         <div>
-          <ItemUpload />
           {/* 商品表示 */}
           <Box sx={{ width: "100%", margin: "auto" }}>
             <Grid container spacing={4}>
