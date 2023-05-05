@@ -1,0 +1,121 @@
+.root {
+  height: 100vh;
+  justify-content: center;
+  .wrapper {
+    margin: 20px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: burlywood;
+    padding: 10px;
+    @media screen and (max-width:600px){
+      margin: 5px;
+      padding: 5px;
+    }
+  }
+  .card_img {
+    position: relative;
+    width: 100%;
+    @media screen and (max-width:600px){
+      height: 150px;
+    }
+    @media screen and (max-width:498px){
+      height: 120px;
+    }
+  }
+  .avatar > * {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-size: 14px;
+    @media screen and (max-width:600px){
+      width: 20px;
+      height: 20px;
+      font-size: 12px;
+    }
+  }
+  .item_title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-bottom: 3px;
+    font-weight: bold;
+    @media screen and (max-width:600px){
+      font-size: 16px;
+    }
+  }
+  .item_author {
+    @media screen and (max-width:600px){
+      font-size: 14px;
+    }
+  }
+  .item_price {
+    width: 70px;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    bottom: 70px;
+    left: 0px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.503);
+    border-radius: 0px 15px 15px 0;
+    padding: 4px;
+    @media screen and (max-width:600px){
+      font-size: 14px;
+      width: 50px;
+    }
+  }
+  .state {
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    color: white;
+    background-color: rgba(253, 8, 8, 0.503);
+    border-radius: 0px 15px 15px 0;
+    padding: 4px;
+    @media screen and (max-width:600px){
+      font-size: 14px;
+      width: 50px;
+    }
+  }
+  .save_icon {
+    width: 30px;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    color: white;
+    border-radius: 50%;
+    padding: 4px;
+  }
+  .save_icon2 {
+    display: none;
+    opacity: 0;
+  }
+  .fixed_button {
+  position: fixed;
+  font-size: 18px;
+  font-weight: bold;
+  width: 130px;
+  bottom: 25px;
+  right: 25px; 
+  border-radius: 30px;
+  background-color: #1976d2;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  color: #fff;
+  transition: all 0.3s ease-in-out; /* 変化をスムーズにする */
+    @media screen and (max-width:600px){
+      font-size: 14px;
+      width: 100px;
+      bottom: 20px;
+      right: 20px; 
+    }
+  }
+
+  .fixed_button:hover {
+    background-color: #1e2b5a;
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.5);
+    transform: translateY(-1px);
+  }
+}
