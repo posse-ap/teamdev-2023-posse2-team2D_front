@@ -172,27 +172,14 @@ const item: Item = {
   ],
 };
 
-const ParentComponent = () => {
-  const [bookmark, setBookmark] = useState({ is_bookmark: false });
-
-  return (
-    <div>
-      <ItemDetail bookmark={bookmark} setBookmark={setBookmark} />
-    </div>
-  );
-};
-
 // Propsの型定義
 type ChildComponentProps = {
-  bookmark: {
-    is_bookmark: boolean;
-  };
   setBookmark: React.Dispatch<React.SetStateAction<{
     is_bookmark: boolean;
   }>>;
 };
 
-const ItemDetail = ({ bookmark, setBookmark }: ChildComponentProps) => {
+const ItemDetail = ({ setBookmark }: ChildComponentProps) => {
   const { showSnackbar } = useSnackbar();
   const navigate = useNavigate();
   const handleBack = () => {
