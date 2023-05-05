@@ -172,16 +172,6 @@ const item: Item = {
   ],
 };
 
-// const ParentComponent = () => {
-//   const [bookmark, setBookmark] = useState({ is_bookmark: false });
-
-//   return (
-//     <div>
-//       <ItemDetail bookmark={bookmark} setBookmark={setBookmark} />
-//     </div>
-//   );
-// };
-
 // Propsの型定義
 type ChildComponentProps = {
   setBookmark: React.Dispatch<React.SetStateAction<{
