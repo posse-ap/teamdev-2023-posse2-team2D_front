@@ -1,20 +1,28 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import SelectBar from '../../components/SelectBar';
+import HeldHistory from './HeldHistory';
+import ParticipationHistory from './ParticipationHistory';
 
 const KnowledgeTransactionList = () => {
   return(
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <h1>ナレッジ取引一覧</h1>
+        <Container
+        sx={{
+          textAlign: "center",
+          padding: "10px",
+        }}
+        >
+          <h1>知識共有一覧</h1>
+        </Container>
         <SelectBar
-          option1="貸し出したナレッジ"
-          option2="借りているナレッジ"
-          component1="貸し出したナレッジの一覧"
-          component2="借りているナレッジの一覧"
+          option1="開催者側"
+          option2="参加者側"
+          component1={<HeldHistory />}
+          component2={<ParticipationHistory />}
         />
       </Container>
     </React.Fragment>
