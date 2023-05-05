@@ -13,6 +13,7 @@ import {
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import RestoreIcon from "@mui/icons-material/Restore";
 import logo from "../../logo.jpg";
@@ -57,7 +58,7 @@ const item: Item = {
   price: 1000,
   title: "MacbookPro 2018 core i7 2.6GHz 16GB 512GB",
   state: 1,
-  is_bookmark: false,
+  is_bookmark: true,
   ownerInfo: { id: 1, name: "かしけん", img: logo },
   img: [
     "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
@@ -171,7 +172,27 @@ const item: Item = {
   ],
 };
 
-const ItemDetail = () => {
+const ParentComponent = () => {
+  const [bookmark, setBookmark] = useState({ is_bookmark: false });
+
+  return (
+    <div>
+      <ItemDetail bookmark={bookmark} setBookmark={setBookmark} />
+    </div>
+  );
+};
+
+// Propsの型定義
+type ChildComponentProps = {
+  bookmark: {
+    is_bookmark: boolean;
+  };
+  setBookmark: React.Dispatch<React.SetStateAction<{
+    is_bookmark: boolean;
+  }>>;
+};
+
+const ItemDetail = ({ bookmark, setBookmark }: ChildComponentProps) => {
   const { showSnackbar } = useSnackbar();
   const navigate = useNavigate();
   const handleBack = () => {
@@ -228,6 +249,16 @@ const ItemDetail = () => {
     }
   };
 
+  const handleClick = () => {
+    if (item.is_bookmark) {
+      setBookmark({ ...item, is_bookmark: false });
+      showSnackbar("ブックマークから削除しました", "warning");
+    } else {
+      setBookmark({ ...item, is_bookmark: true });
+      showSnackbar("ブックマークに追加しました！", "success");
+    }
+  };
+
   return (
     <div className={styles.root}>
       <Typography
@@ -243,7 +274,7 @@ const ItemDetail = () => {
       <Box sx={{ display: "flex" }}>
         <Box sx={{ display: "flex", width: "50%" }}>
           <Box sx={{ mr: "20px" }}>
-            {item.img.map((img_child) => (
+            {item.img.map((img_child: string | undefined) => (
               <Box sx={{ mb: 1 }}>
                 <img
                   src={img_child}
@@ -314,20 +345,31 @@ const ItemDetail = () => {
                 gap: 1,
               }}
             >
-              <BookmarkBorderIcon
-                onClick={() =>
-                  showSnackbar("ブックマークに追加しました！", "success")
-                }
-                sx={{
-                  width: 30,
-                  height: 30,
-                  "@media screen and (max-width:498px)": {
-                    width: 25,
-                    height: 25,
-                  },
-                }}
-              />
-              {/* <BookmarkBorderIcon onClick={() => showSnackbar('ブックマークから削除しました', 'warning')} sx={{width: 30, height: 30, "@media screen and (max-width:498px)": {width: 25, height: 25} }} /> */}
+              {item.is_bookmark ? (
+                <BookmarkIcon
+                  onClick={handleClick}
+                  sx={{
+                    width: 30,
+                    height: 30,
+                    "@media screen and (max-width:498px)": {
+                      width: 25,
+                      height: 25,
+                    },
+                  }}
+                />
+              ) : (
+                <BookmarkBorderIcon
+                  onClick={handleClick}
+                  sx={{
+                    width: 30,
+                    height: 30,
+                    "@media screen and (max-width:498px)": {
+                      width: 25,
+                      height: 25,
+                    },
+                  }}
+                />
+              )}
               <Typography
                 sx={{
                   fontSize: 10,
