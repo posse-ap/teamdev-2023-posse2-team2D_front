@@ -28,7 +28,24 @@
       height: 300px;
     }
   }
-  .state {
+  .before_lending {
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    background-color: rgba(13, 40, 243, 0.78);
+    border-radius: 5px;
+    padding: 4px;
+    z-index: 1000;
+    @media screen and (max-width:600px){
+      font-size: 14px;
+      width: 70px;
+    }
+  }
+  .on_loan {
     width: 100px;
     text-align: center;
     font-weight: bold;

@@ -533,12 +533,12 @@ export const HomePage = () => {
                         alt="商品画像"
                       />
                       {item.state === 1 && (
-                        <Typography sx={{fontsize: "18px"}} component="div" className={styles.state}>
+                        <Typography sx={{fontsize: "16px"}} component="div" className={styles.before_lending}>
                           貸出開始前
                         </Typography> 
                       )}
                       {item.state === 3 && (
-                        <Typography sx={{fontsize: "18px"}} component="div" className={styles.state}>
+                        <Typography component="div" className={styles.on_loan}>
                           貸出中
                         </Typography> 
                       )}

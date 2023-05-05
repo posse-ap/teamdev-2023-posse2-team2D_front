@@ -64,7 +64,25 @@
       width: 50px;
     }
   }
-  .state {
+  .before_lending {
+    font-size: 14px;
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    color: white;
+    background-color: rgba(58, 81, 252, 0.503);
+    border-radius: 0px 15px 15px 0;
+    padding: 4px;
+    @media screen and (max-width:600px){
+      font-size: 12px;
+      width: 50px;
+    }
+  }
+  .on_loan {
+    font-size: 14px;
     width: 100px;
     text-align: center;
     font-weight: bold;
@@ -76,7 +94,7 @@
     border-radius: 0px 15px 15px 0;
     padding: 4px;
     @media screen and (max-width:600px){
-      font-size: 14px;
+      font-size: 12px;
       width: 50px;
     }
   }

@@ -11,6 +11,8 @@ import { NotFound } from "./components/NotFound";
 import ItemDetail from './pages/item/ItemDetail';
 import KnowledgeDetail from './pages/knowledge/KnowledgeDetail';
 import Layout from "./layout/Layout";
+import ItemUpload from "./pages/item/ItemUpload";
+import KnowledgeUpload from "./pages/knowledge/KnowledgeUpload";
 
 
 export const App =() => {
@@ -19,9 +21,16 @@ export const App =() => {
      <BrowserRouter>
       <Routes>
         <Route path="" element={<Layout />}>
+          {/* トップページ */}
           <Route index element={<HomePage />} />
+          {/* 商品/ナレッジ詳細ページ */}
           <Route path="item/:id" element={<ItemDetail />} />
           <Route path="knowledge/:id" element={<KnowledgeDetail />} />
+          {/* 商品/ナレッジ登録ページ */}
+          <Route path="lendItem" element={<ItemUpload />} />
+          <Route path="holdEvent" element={<KnowledgeUpload />} />
+
+          {/* サンプルページ */}
           <Route path="table" element={<Table />} />
           <Route path="page1" element={<Sample1Page />} />
           <Route path="page2" element={<Sample2Page />} />
@@ -33,6 +42,8 @@ export const App =() => {
             <Route path=":cildid" element={<SamplePage4Child2 />} /> 
             <Route path=":cildid" element={<SamplePage4Child3 />} /> 
           </Route>
+          
+          {/* 404ページ */}
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
