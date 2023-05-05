@@ -787,7 +787,6 @@ export const HomePage = () => {
                 <Grid container spacing={4}>
                   {itemData.map((item) => (
                     <Grid item xs={6} md={4} lg={3} key={item.id}>
-                      {/* <Card sx={{ maxWidth: 500, ...(item.state === 1 && {opacity: 0.5}),}}> */}
                       <Card sx={{ maxWidth: 500 }}>
                         <CardActionArea href={"item/" + item.id}>
                           <CardMedia

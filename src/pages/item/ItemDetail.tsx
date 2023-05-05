@@ -34,6 +34,7 @@ type Item = {
   price: number;
   title: string;
   state: number;
+  is_bookmark: boolean;
   img: string[];
   ownerInfo: { id: number; name: string; img: string };
   comments?: {
@@ -56,6 +57,7 @@ const item: Item = {
   price: 1000,
   title: "MacbookPro 2018 core i7 2.6GHz 16GB 512GB",
   state: 1,
+  is_bookmark: false,
   ownerInfo: { id: 1, name: "かしけん", img: logo },
   img: [
     "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",

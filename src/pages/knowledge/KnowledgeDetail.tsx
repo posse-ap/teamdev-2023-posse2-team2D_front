@@ -35,6 +35,7 @@ type Knowledge = {
   price: number;
   img: string[];
   title: string;
+  is_bookmark: boolean;
   ownerInfo: { id: number; name: string; img: string };
   comments?: {
     user_id: number;
@@ -67,6 +68,7 @@ const knowledge: Knowledge = {
     "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
   ],
   title: "MacbookPro 2018 core i7 2.6GHz 16GB 512GB",
+  is_bookmark: true,
   ownerInfo: { id: 1, name: "かしけん", img: logo },
   comments: [
     {
