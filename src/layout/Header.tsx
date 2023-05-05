@@ -49,7 +49,7 @@ const Header = () => {
             </Drawer>
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link to={'/'} style={{ textDecoration: 'none' }}>
+            <Link to={'/home'} style={{ textDecoration: 'none' }}>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1}}>
                   <Avatar src={logo}  sx={{"@media screen and (max-width:498px)": {width: 25, height: 25} }} alt="PeerPerk" />
               <Typography sx={{ fontSize: 20, "@media screen and (max-width:498px)": {fontSize: 14}, color: '#666666' }} >

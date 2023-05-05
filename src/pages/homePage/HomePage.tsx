@@ -14,7 +14,7 @@ type ItemData = {
   price: number;
   img: string[];
   title: string;
-  author: string;
+  owner: string;
   is_bookmark: boolean;
   state: number;
 };
@@ -28,7 +28,7 @@ const itemData: ItemData[] = [
       "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
     ],
     title: "MacbookPro 2018 core i7 2.6GHz 16GB 512GB",
-    author: "@bkristastucchio",
+    owner: "@bkristastucchio",
     is_bookmark: false,
     state: 1
   },
@@ -37,7 +37,7 @@ const itemData: ItemData[] = [
     price: 1000,
     img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
     title: "Burger",
-    author: "@rollelflex_graphy726",
+    owner: "@rollelflex_graphy726",
     is_bookmark: false,
     state: 1
   },
@@ -46,7 +46,7 @@ const itemData: ItemData[] = [
     price: 3000,
     img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
     title: "Camera",
-    author: "@helloimnik",
+    owner: "@helloimnik",
     is_bookmark: false,
     state: 3
   },
@@ -55,7 +55,7 @@ const itemData: ItemData[] = [
     price: 4000,
     img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
     title: "Coffee",
-    author: "@nolanissac",
+    owner: "@nolanissac",
     is_bookmark: false,
     state: 1
   },
@@ -64,7 +64,7 @@ const itemData: ItemData[] = [
     price: 500,
     img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
     title: "Hats",
-    author: "@hjrc33",
+    owner: "@hjrc33",
     is_bookmark: false,
     state: 1
   },
@@ -73,7 +73,7 @@ const itemData: ItemData[] = [
     price: 600,
     img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
     title: "Honey",
-    author: "@arwinneil",
+    owner: "@arwinneil",
     is_bookmark: false,
     state: 2
   },
@@ -82,7 +82,7 @@ const itemData: ItemData[] = [
     price: 700,
     img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
     title: "Basketball",
-    author: "@tjdragotta",
+    owner: "@tjdragotta",
     is_bookmark: true,
     state: 1
   },
@@ -91,7 +91,7 @@ const itemData: ItemData[] = [
     price: 800, 
     img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
     title: "Breakfast",
-    author: "@bkristastucchio",
+    owner: "@bkristastucchio",
     is_bookmark: false,
     state: 1
   },
@@ -100,7 +100,7 @@ const itemData: ItemData[] = [
     price: 900,
     img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
     title: "Burger",
-    author: "@rollelflex_graphy726",
+    owner: "@rollelflex_graphy726",
     is_bookmark: true,
     state: 3
   },
@@ -109,7 +109,7 @@ const itemData: ItemData[] = [
     price: 1000,
     img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
     title: "Camera",
-    author: "@helloimnik",
+    owner: "@helloimnik",
     is_bookmark: true,
     state: 1
   },
@@ -118,7 +118,7 @@ const itemData: ItemData[] = [
     price: 1100,
     img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
     title: "Coffee",
-    author: "@nolanissac",
+    owner: "@nolanissac",
     is_bookmark: true,
     state: 2
   },
@@ -127,7 +127,7 @@ const itemData: ItemData[] = [
     price: 1200,
     img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
     title: "Hats",
-    author: "@hjrc33",
+    owner: "@hjrc33",
     is_bookmark: true,
     state: 1
   },
@@ -136,7 +136,7 @@ const itemData: ItemData[] = [
     price: 1300,
     img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
     title: "Honey",
-    author: "@arwinneil",
+    owner: "@arwinneil",
     is_bookmark: true,
     state: 2
   },
@@ -145,7 +145,7 @@ const itemData: ItemData[] = [
     price: 1400,
     img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
     title: "Basketball",
-    author: "@tjdragotta",
+    owner: "@tjdragotta",
     is_bookmark: true,
     state: 1
   },
@@ -154,7 +154,7 @@ const itemData: ItemData[] = [
     price: 1500,
     img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
     title: "Breakfast",
-    author: "@bkristastucchio",
+    owner: "@bkristastucchio",
     is_bookmark: true,
     state: 1
   },
@@ -163,7 +163,7 @@ const itemData: ItemData[] = [
     price: 1600,
     img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
     title: "Burger",
-    author: "@rollelflex_graphy726",
+    owner: "@rollelflex_graphy726",
     is_bookmark: true,
     state: 3
   },
@@ -172,7 +172,7 @@ const itemData: ItemData[] = [
     price: 1700,
     img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
     title: "Camera",
-    author: "@helloimnik",
+    owner: "@helloimnik",
     is_bookmark: true,
     state: 1
   },
@@ -181,7 +181,7 @@ const itemData: ItemData[] = [
     price: 1800,
     img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
     title: "Coffee",
-    author: "@nolanissac",
+    owner: "@nolanissac",
     is_bookmark: true,
     state: 1
   },
@@ -190,7 +190,7 @@ const itemData: ItemData[] = [
     price: 1900,
     img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
     title: "Hats",
-    author: "@hjrc33",
+    owner: "@hjrc33",
     is_bookmark: true,
     state: 1
   },
@@ -199,7 +199,7 @@ const itemData: ItemData[] = [
     price: 2000,
     img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
     title: "Honey",
-    author: "@arwinneil",
+    owner: "@arwinneil",
     is_bookmark: true,
     state: 1
   },
@@ -208,7 +208,7 @@ const itemData: ItemData[] = [
     price: 2100,
     img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
     title: "Basketball",
-    author: "@tjdragotta",
+    owner: "@tjdragotta",
     is_bookmark: true,
     state: 1
   },
@@ -218,7 +218,7 @@ type KnowledgeData = {
   id: number;
   img?: string;
   title: string;
-  author: string;
+  owner: string;
   participants?: { name: string; img: string;}[];
   is_bookmark?: boolean;
 };
@@ -228,7 +228,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 1,
     img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
     title: "Breakfast",
-    author: "@bkristastucchio",
+    owner: "@bkristastucchio",
     participants: [
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -242,7 +242,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 2,
     img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
     title: "Burger",
-    author: "@rollelflex_graphy726",
+    owner: "@rollelflex_graphy726",
     participants: [
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -257,7 +257,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 3,
     // img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
     title: "Camera",
-    author: "@helloimnik",
+    owner: "@helloimnik",
     participants: [
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -270,7 +270,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 4,
     // img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
     title: "Coffee",
-    author: "@nolanissac",
+    owner: "@nolanissac",
     // participants: [
     //   {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
     //   {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -283,7 +283,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 5,
     img: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
     title: "Hats",
-    author: "@hjrc33",
+    owner: "@hjrc33",
     participants: [
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -296,7 +296,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 6,
     img: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
     title: "Honey",
-    author: "@arwinneil",
+    owner: "@arwinneil",
     participants: [
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -309,7 +309,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 7,
     // img: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
     title: "Basketball",
-    author: "@tjdragotta",
+    owner: "@tjdragotta",
     participants: [
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -322,7 +322,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 8,
     img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
     title: "Breakfast",
-    author: "@bkristastucchio",
+    owner: "@bkristastucchio",
     participants: [
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -335,7 +335,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 9,
     img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
     title: "Burger",
-    author: "@rollelflex_graphy726",
+    owner: "@rollelflex_graphy726",
     participants: [
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -348,7 +348,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 10,
     img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
     title: "Camera",
-    author: "@helloimnik",
+    owner: "@helloimnik",
     participants: [
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -361,7 +361,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 11,
     img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
     title: "Coffee",
-    author: "@nolanissac",
+    owner: "@nolanissac",
     participants: [
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -374,7 +374,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 12,
     img: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
     title: "Hats",
-    author: "@hjrc33",
+    owner: "@hjrc33",
     participants: [
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -387,7 +387,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 13,
     img: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
     title: "Honey",
-    author: "@arwinneil",
+    owner: "@arwinneil",
     participants: [
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -400,7 +400,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 14,
     img: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
     title: "Basketball",
-    author: "@tjdragotta",
+    owner: "@tjdragotta",
     participants: [
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -413,7 +413,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 15,
     img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
     title: "Breakfast",
-    author: "@bkristastucchio",
+    owner: "@bkristastucchio",
     participants: [
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -426,7 +426,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 16,
     img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
     title: "knowledge",
-    author: "@kashiken",
+    owner: "@kashiken",
     participants: [
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -439,7 +439,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 17,
     img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
     title: "knowledge",
-    author: "@kashiken",
+    owner: "@kashiken",
     participants: [
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -452,7 +452,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 18,
     img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
     title: "knowledge",
-    author: "@kashiken",
+    owner: "@kashiken",
     participants: [
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -465,7 +465,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 19,
     img: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
     title: "Hats",
-    author: "@hjrc33",
+    owner: "@hjrc33",
     participants: [
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -478,7 +478,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 20,
     img: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
     title: "Honey",
-    author: "@arwinneil",
+    owner: "@arwinneil",
     participants: [
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -491,7 +491,7 @@ const knowledgeData: KnowledgeData[] = [
     id: 21,
     img: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
     title: "Basketball",
-    author: "@tjdragotta",
+    owner: "@tjdragotta",
     participants: [
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
       {name: "tarp", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} ,
@@ -550,8 +550,8 @@ export const HomePage = () => {
                         <Typography sx={{fontsize: "18px"}} component="div" className={styles.item_title}>
                           {item.title}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary" className={styles.item_author}>
-                        {item.author}
+                        <Typography variant="body2" color="text.secondary" className={styles.item_owner}>
+                        {item.owner}
                         </Typography>
                       </CardContent>
                     </CardActionArea>
@@ -584,8 +584,8 @@ export const HomePage = () => {
                         <Typography sx={{fontsize: "18px"}} component="div" className={styles.item_title}>
                           {knowledge.title}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary" className={styles.item_author}>
-                        {knowledge.author}
+                        <Typography variant="body2" color="text.secondary" className={styles.item_owner}>
+                        {knowledge.owner}
                         </Typography>
                         <AvatarGroup total={knowledge.participants?.length ?? 0} className={styles.avatar}>
                           {(knowledge.participants ?? []).map((participant: { name: string; img: string; })  => (

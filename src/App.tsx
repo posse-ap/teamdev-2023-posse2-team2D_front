@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginForm from "./components/Login";
 import { HomePage } from "./pages/homePage/HomePage";
 import  Table  from "./components/Table";
 import { Sample1Page }  from "./pages/sample1Page/Sample1Page";
@@ -7,6 +8,8 @@ import { Sample2Page } from "./pages/sample2Page/Sample2Page";
 // import SamplePage3 from "./components/SamplePage3";
 import { SamplePage3 } from "./components/SamplePage3";
 import { SamplePage4, SamplePage4Child1, SamplePage4Child2, SamplePage4Child3 } from "./components/SamplePage4";
+import Mypage from "./pages/mypage/Mypage";
+import EditProfile from "./components/EditProfile";
 import { NotFound } from "./components/NotFound";
 import ItemDetail from './pages/item/ItemDetail';
 import KnowledgeDetail from './pages/knowledge/KnowledgeDetail';
@@ -18,8 +21,9 @@ export const App =() => {
     <>
      <BrowserRouter>
       <Routes>
+          <Route index element={<LoginForm />} />
         <Route path="" element={<Layout />}>
-          <Route index element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="item/:id" element={<ItemDetail />} />
           <Route path="knowledge/:id" element={<KnowledgeDetail />} />
           <Route path="table" element={<Table />} />
@@ -33,6 +37,8 @@ export const App =() => {
             <Route path=":cildid" element={<SamplePage4Child2 />} /> 
             <Route path=":cildid" element={<SamplePage4Child3 />} /> 
           </Route>
+          <Route path="mypage" element={<Mypage />}/>
+          <Route path="mypage/profile/edit" element={<EditProfile />}/>
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
