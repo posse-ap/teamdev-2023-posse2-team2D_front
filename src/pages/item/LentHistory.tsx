@@ -17,8 +17,8 @@ const LentHistory = () => {
         labels={["出品中", "貸出中", "貸し出し申請中"]}
         children={[
           <div><TransactionList/></div>,
-          <div>貸出中</div>,
-          <div>貸し出し申請中</div>,
+          <div><TransactionList/></div>,
+          <div><TransactionList/></div>,
         ]}
       />
     </div>

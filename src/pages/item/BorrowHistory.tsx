@@ -1,5 +1,6 @@
 import SimpleTabs from "../../components/SimpleTabs";
 import Container from '@mui/material/Container';
+import TransactionList from "../../components/TransactionList";
 
 const BorrowHistory = () => {
   return (
@@ -15,8 +16,8 @@ const BorrowHistory = () => {
       <SimpleTabs
         labels={["借用中", "返却済"]}
         children={[
-          <div>借用中</div>,
-          <div>返却済</div>,
+          <div><TransactionList/></div>,
+          <div><TransactionList/></div>,
         ]}
       />
     </div>
