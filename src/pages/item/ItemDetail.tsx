@@ -29,7 +29,7 @@ type Item = {
   title: string;
   state: number;
   img: string[];
-  authorInfo: { id: number; name: string; img: string;};
+  ownerInfo: { id: number; name: string; img: string;};
   comments?: { user_id: number; user_name: string; img: string; content: string;}[];
   transactions?: { id: number; start_date: string; points: number; borrower: string; return_date: string;}[];
 };
@@ -40,7 +40,7 @@ const item: Item =
     price: 1000,
     title: "MacbookPro 2018 core i7 2.6GHz 16GB 512GB",
     state: 1,
-    authorInfo: { id: 1, name: "かしけん", img: logo},
+    ownerInfo: { id: 1, name: "かしけん", img: logo},
     img: [
       "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
       "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
@@ -195,11 +195,11 @@ const ItemDetail = () => {
           <Typography sx={{ mt: 1, fontSize: "20px", fontWeight: "bold", color: "#666666" }}>商品の説明</Typography>
           <Typography sx={{ fontSize: "16px", color: "#666666" }}>ちょっとdocker使えないかも、自分でインストールしといてください。値切りは受け付けません。</Typography>
           <Typography sx={{ mt: 3, fontSize: "20px", fontWeight: "bold", color: "#666666" }}>オーナー</Typography>
-          <Link to={'../user/' + item.authorInfo.id}>
+          <Link to={'../user/' + item.ownerInfo.id}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1}}>
-                <Avatar src={item.authorInfo.img}  sx={{"@media screen and (max-width:498px)": {width: 25, height: 25} }} alt="PeerPerk" />
+                <Avatar src={item.ownerInfo.img}  sx={{"@media screen and (max-width:498px)": {width: 25, height: 25} }} alt="PeerPerk" />
             <Typography sx={{ fontSize: 16, "@media screen and (max-width:498px)": {fontSize: 14} }} >
-              {item.authorInfo.name}
+              {item.ownerInfo.name}
             </Typography>
             </Box>
           </Link>

@@ -29,7 +29,7 @@ type Knowledge = {
   price: number;
   img: string[];
   title: string;
-  authorInfo: { id: number; name: string; img: string;};
+  ownerInfo: { id: number; name: string; img: string;};
   comments?: { user_id: number; user_name: string; img: string; content: string;}[];
   appreciations?: { user_id: number; user_name: string; img: string; content: string;}[];
   transactions?: { id: number; book_date: string; points: number; booker: string; hold_status: string;}[];
@@ -46,7 +46,7 @@ const knowledge: Knowledge =
       "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
     ],
     title: "MacbookPro 2018 core i7 2.6GHz 16GB 512GB",
-    authorInfo: { id: 1, name: "かしけん", img: logo},
+    ownerInfo: { id: 1, name: "かしけん", img: logo},
     comments: [
       {user_id: 1, user_name: "tarp", img: logo, content: "これってスペックいいほうなんですかね？"},
       {user_id: 2, user_name: "kashiken", img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e", content: "これってスペックいいほうなんですかね？"},
@@ -193,11 +193,11 @@ const KnowledgeDetail = () => {
           <Typography sx={{ mt: 1, fontSize: "20px", fontWeight: "bold", color: "#666666" }}>商品の説明</Typography>
           <Typography sx={{ fontSize: "16px", color: "#666666" }}>ちょっとdocker使えないかも、自分でインストールしといてください。値切りは受け付けません。</Typography>
           <Typography sx={{ mt: 3, fontSize: "20px", fontWeight: "bold", color: "#666666" }}>オーナー</Typography>
-          <Link to={'../user/' + knowledge.authorInfo.id}>
+          <Link to={'../user/' + knowledge.ownerInfo.id}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1}}>
-                <Avatar src={knowledge.authorInfo.img}  sx={{"@media screen and (max-width:498px)": {width: 25, height: 25} }} alt="PeerPerk" />
+                <Avatar src={knowledge.ownerInfo.img}  sx={{"@media screen and (max-width:498px)": {width: 25, height: 25} }} alt="PeerPerk" />
             <Typography sx={{ fontSize: 16, "@media screen and (max-width:498px)": {fontSize: 14} }} >
-              {knowledge.authorInfo.name}
+              {knowledge.ownerInfo.name}
             </Typography>
             </Box>
           </Link>

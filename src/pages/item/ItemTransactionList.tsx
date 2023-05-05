@@ -21,8 +21,8 @@ const ItemTransactionList = () => {
         <SelectBar
           option1="貸し出した商品"
           option2="借りている商品"
-          component1={<BorrowHistory />}
-          component2={<LentHistory />}
+          component1={<LentHistory />}
+          component2={<BorrowHistory />}
         />
       </Container>
     </React.Fragment>
