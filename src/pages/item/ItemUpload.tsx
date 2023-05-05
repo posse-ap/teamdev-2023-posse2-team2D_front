@@ -1,33 +1,27 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useState } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
-import FullWidthTextField from "../../components/FullWidthTextField";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useSnackbar } from "../../components/snackbar/Snackbar";
 import {
   Control,
   FieldValues,
-  Controller,
   SubmitHandler,
   useForm,
 } from "react-hook-form";
 import {
-  Box,
   Button,
-  TextField,
   Typography,
-  Grid,
-  Slider,
 } from "@mui/material";
 import RegisterContent from "../../components/register/RegisterContent";
-import { useNavigate, useParams } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { useNavigate } from "react-router-dom";
 
-// フロント部分
+
 export default function ItemUpload() {
   const { showSnackbar } = useSnackbar();
-  const [active, setActive] = useState(false);
-  const classToggle = () => {
-    setActive(!active);
+  const navigate = useNavigate();
+  const handleBack = () => {
+    navigate(-1);
   };
 
   // 1. 入力値の定義を作成
@@ -41,23 +35,11 @@ export default function ItemUpload() {
   // 検証が成功すると呼び出され、引数で入力値が渡ってくる
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
     console.log(`submit: ${data.comment}`);
+    showSnackbar("貸出申請が完了しました！", "success");
+    navigate("/"); // トップページに遷移
   };
-
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
-  const params = useParams();
-
-  // const { handbooks, status } = useAppSelector(handbookSelector);
-  // const { statusLabel, status: assignmentStatus } = useAppSelector(assignmentSelector);
-  // const [handbook, setHandbook] = useState<Handbook>();
-
-  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   // 画像
-  const [explanationImages, setExplanationImages] = useState<File[]>([]);
-
-  const handleMenuItemClick = (path: string) => {
-    navigate(path);
-  };
+  const [itemImages, setItemImages] = useState<File[]>([]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -69,37 +51,31 @@ export default function ItemUpload() {
             textAlign: "center",
             padding: "10px",
           }}
-        >
-          <h2>商品貸し出し</h2>
-          {/* <FullWidthTextField label="商品名" helperText="/40" />
-        <FullWidthTextField label="商品画像(3枚まで可能)" helperText="ここにファイルをドラッグアンドドロップするかクリックしファイルを選択してください" />
-        <FullWidthTextField label="希望貸出ポイント数" helperText="1~5000ポイントで任意で入力してください。" />
-        <FullWidthTextField label="詳細" rows={4} helperText="色、素材、定価、重さ、注意点など" />
-        <Button
-        sx={{ fontWeight: "bold", mt: 2 }}
-        variant="contained"
-        onClick={(event) => {
-          event.preventDefault();
-          classToggle();
-          showSnackbar('登録が完了しました！', 'success');}}
-        >
-        貸し出し申請</Button> */}
-
+        > 
+          <Typography
+            color="blue"
+            display="flex"
+            alignItems="center"
+            sx={{ fontSize: 16}}
+            onClick={handleBack}
+          >
+            <ArrowBackIosIcon sx={{ width: 16 }} />
+            戻る
+          </Typography>
           <RegisterContent
-            title=""
+            title="商品貸し出し"
             // commentName={"comment"}
             control={control as unknown as Control<FieldValues, any>}
-            imageFiles={explanationImages}
-            // imageUrls={handbook?.explanation.image_urls ?? []}
+            imageFiles={itemImages}
+            // imageUrls={handbook?.item.image_urls ?? []}
             imageUrls={[]}
-            setImages={setExplanationImages}
+            setImages={setItemImages}
           />
           <Button
             type="submit"
             variant="contained"
             color="primary"
             sx={{ fontWeight: "bold", width: "50%", py: 1 }}
-            // disabled={isSubmitting}
           >
             貸し出し申請
           </Button>
@@ -109,4 +85,3 @@ export default function ItemUpload() {
   );
 }
 
-// 見た目部分

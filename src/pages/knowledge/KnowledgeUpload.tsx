@@ -1,33 +1,29 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useState } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
-import FullWidthTextField from "../../components/FullWidthTextField";
 import { useSnackbar } from "../../components/snackbar/Snackbar";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import {
   Control,
   FieldValues,
-  Controller,
   SubmitHandler,
   useForm,
 } from "react-hook-form";
-import {
-  Box,
-  Button,
-  TextField,
-  Typography,
-  Grid,
-  Slider,
-} from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import RegisterKnowledge from "../../components/register/RegisterKnowledge";
-import { useNavigate, useParams } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { useNavigate } from "react-router-dom";
 
 // フロント部分
 export default function ItemUpload() {
   const { showSnackbar } = useSnackbar();
-  const [active, setActive] = useState(false);
-  const classToggle = () => {
-    setActive(!active);
+  const navigate = useNavigate();
+  const handleClick = () => {
+    showSnackbar("貸出申請が完了しました！", "success");
+    navigate("/"); // トップページに遷移
+  };
+
+  const handleBack = () => {
+    navigate(-1);
   };
 
   // 1. 入力値の定義を作成
@@ -43,21 +39,7 @@ export default function ItemUpload() {
     console.log(`submit: ${data.comment}`);
   };
 
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
-  const params = useParams();
-
-  // const { handbooks, status } = useAppSelector(handbookSelector);
-  // const { statusLabel, status: assignmentStatus } = useAppSelector(assignmentSelector);
-  // const [handbook, setHandbook] = useState<Handbook>();
-
-  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
-  // 画像
-  const [explanationImages, setExplanationImages] = useState<File[]>([]);
-
-  const handleMenuItemClick = (path: string) => {
-    navigate(path);
-  };
+  const [itemImages, setItemImages] = useState<File[]>([]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -70,36 +52,31 @@ export default function ItemUpload() {
             padding: "10px",
           }}
         >
-          <h2>ナレッジ共有/勉強会開催</h2>
-          {/* <FullWidthTextField label="商品名" helperText="/40" />
-        <FullWidthTextField label="商品画像(3枚まで可能)" helperText="ここにファイルをドラッグアンドドロップするかクリックしファイルを選択してください" />
-        <FullWidthTextField label="希望貸出ポイント数" helperText="1~5000ポイントで任意で入力してください。" />
-        <FullWidthTextField label="詳細" rows={4} helperText="色、素材、定価、重さ、注意点など" />
-        <Button
-        sx={{ fontWeight: "bold", mt: 2 }}
-        variant="contained"
-        onClick={(event) => {
-          event.preventDefault();
-          classToggle();
-          showSnackbar('登録が完了しました！', 'success');}}
-        >
-        貸し出し申請</Button> */}
-
+          <Typography
+            color="blue"
+            display="flex"
+            alignItems="center"
+            sx={{ fontSize: 16}}
+            onClick={handleBack}
+          >
+            <ArrowBackIosIcon sx={{ width: 16 }} />
+            戻る
+          </Typography>
           <RegisterKnowledge
             title=""
             // commentName={"comment"}
             control={control as unknown as Control<FieldValues, any>}
-            imageFiles={explanationImages}
-            // imageUrls={handbook?.explanation.image_urls ?? []}
+            imageFiles={itemImages}
+            // imageUrls={item?.image_urls ?? []}
             imageUrls={[]}
-            setImages={setExplanationImages}
+            setImages={setItemImages}
           />
           <Button
             type="submit"
             variant="contained"
             color="primary"
             sx={{ fontWeight: "bold", width: "50%", py: 1 }}
-            // disabled={isSubmitting}
+            onClick={handleClick}
           >
             開催/共有
           </Button>
