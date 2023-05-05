@@ -13,6 +13,9 @@ import KnowledgeDetail from './pages/knowledge/KnowledgeDetail';
 import Layout from "./layout/Layout";
 import ItemUpload from "./pages/item/ItemUpload";
 import KnowledgeUpload from "./pages/knowledge/KnowledgeUpload";
+import ItemTransactionList from "./pages/item/ItemTransactionList";
+import KnowledgeTransactionList from "./pages/knowledge/KnowledgeTransactionList";
+import AllTransactionList from "./pages/admin/AllTransactionList";
 
 
 export const App =() => {
@@ -29,6 +32,11 @@ export const App =() => {
           {/* 商品/ナレッジ登録ページ */}
           <Route path="lendItem" element={<ItemUpload />} />
           <Route path="holdEvent" element={<KnowledgeUpload />} />
+          {/* 商品/ナレッジ取引一覧ページ */}
+          <Route path="itemTransactionList" element={<ItemTransactionList />} />
+          <Route path="knowledgeTransactionList" element={<KnowledgeTransactionList />} />
+          <Route path="allTransactionList" element={<AllTransactionList />} />
+
 
           {/* サンプルページ */}
           <Route path="table" element={<Table />} />
