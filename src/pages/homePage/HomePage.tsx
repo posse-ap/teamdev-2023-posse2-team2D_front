@@ -35,7 +35,7 @@ const itemData: ItemData[] = [
   {
     id: 2,
     price: 1000,
-    img: ["https://images.unsplash.com/photo-1551782450-a2132b4ba21d"],
+    img: [logo],
     title: "Burger",
     author: "@rollelflex_graphy726",
     is_bookmark: false,
