@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HomePage } from "./pages/homePage/HomePage";
+import { Bookmark } from "./pages/Bookmark";
 import  Table  from "./components/Table";
 import { Sample1Page }  from "./pages/sample1Page/Sample1Page";
 import { Sample2Page } from "./pages/sample2Page/Sample2Page";
@@ -26,6 +27,8 @@ const [bookmark, setBookmark] = useState({ is_bookmark: false });
         <Route path="" element={<Layout />}>
           {/* トップページ */}
           <Route index element={<HomePage />} />
+          {/* ブックマークページ */}
+          <Route path="bookmarkList" element={<Bookmark />} />
           {/* 商品/ナレッジ詳細ページ */}
           <Route path="item/:id" element={<ItemDetail setBookmark={setBookmark}/>} />
           <Route path="knowledge/:id" element={<KnowledgeDetail />} />
