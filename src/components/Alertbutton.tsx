@@ -19,7 +19,7 @@ const AlertButton = (props:any) => {
 
   return (
     <div>
-      <Button variant="contained" onClick={handleClickOpen} color="error">
+      <Button variant={props.variant} onClick={handleClickOpen} color="error">
         {props.title}
       </Button>
       <Dialog

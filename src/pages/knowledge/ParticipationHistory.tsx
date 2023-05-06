@@ -1,5 +1,4 @@
 import SimpleTabs from "../../components/SimpleTabs";
-import TransactionList from "../../components/TransactionList";
 import Container from '@mui/material/Container';
 
 const ParticipationHistory = () => {
@@ -16,8 +15,8 @@ const ParticipationHistory = () => {
       <SimpleTabs
         labels={["予約中", "参加済"]}
         children={[
-          <div><TransactionList/></div>,
-          <div><TransactionList/></div>,
+          <div></div>,
+          <div></div>,
         ]}
       />
     </div>
