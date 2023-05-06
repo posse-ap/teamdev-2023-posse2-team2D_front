@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route, useParams, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HomePage } from "./pages/homePage/HomePage";
-import { RequestList, requestData } from "./pages/request/RequestList";
+import { RequestList } from "./pages/request/RequestList";
 import  RequestDetail  from "./pages/request/RequestDetail";
 import { Bookmark } from "./pages/Bookmark";
 import  Table  from "./components/Table";
