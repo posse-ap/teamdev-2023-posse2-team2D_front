@@ -110,27 +110,4 @@
     height: 20px;
     border-radius: 5px;
   }
-  .lend_item {
-  position: fixed;
-  font-size: 16px;
-  font-weight: bold;
-  width: 20%;
-  bottom: 13%;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  border-radius: 5px;
-  background-color: #1976d2;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-  color: #fff;
-  transition: all 0.3s ease-in-out; /* 変化をスムーズにする */
-    @media screen and (max-width:600px){
-      font-size: 14px;
-      width: 200px;
-    }
-  }
-  .lend_item:hover {
-    background-color: #1d3489;
-    box-shadow: 2px 2px 12px rgba(0,0,0,0.5);
-    transform: translate(-50%, 51%);
-  }
 }
