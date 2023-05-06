@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import styles from "../item/Item.module.scss";
+import styles from "../homePage/HomePage.module.scss";
 import { Box, Button, Grid, Typography } from "@mui/material";
 import logo from "../../logo.jpg";
-
+import AlertButton from "../../components/Alertbutton";
 
 export type RequestData = {
   id: number;
@@ -111,9 +111,11 @@ const RequestDetail = () => {
   const handleBack = () => {
     navigate(-1);
   };
-  
-  const requestId = parseInt(useParams<{ id: string }>().id ?? '', 10);
-  const request = requestData.find((r: { id: number; }) => r.id === Number(requestId));
+
+  const requestId = parseInt(useParams<{ id: string }>().id ?? "", 10);
+  const request = requestData.find(
+    (r: { id: number }) => r.id === Number(requestId)
+  );
 
   if (!request) {
     return <div>リクエストが見つかりませんでした。</div>;
@@ -153,35 +155,56 @@ const RequestDetail = () => {
         </Typography>
       </Box>
       {request.is_mine ? (
-      <><Grid item xs={12} sx={{ textAlign: "center", mb: 3 }} className={styles.buttons}>
-          <Button
-            href={"editRequest"}
-            className={styles.edit_request}
-            aria-label="編集"
+        <>
+          <Grid
+            item
+            xs={12}
+            sx={{ textAlign: "center", mb: 3 }}
+            className={styles.buttons}
           >
-            編集
-          </Button>
-          <Button
-            href={"deleteRequest"}
-            className={styles.delete_request}
-            aria-label="削除"
-          >
-            削除
-          </Button>
-        </Grid></>
-      ) : (
-      <><Grid item xs={12} sx={{ textAlign: "center", mb: 3 }}>
             <Button
-              href={"lendItem"}
+              href={"edit/" + request.id}
+              className={styles.edit_request}
+              aria-label="編集"
+            >
+              編集
+            </Button>
+            {/* <Button
+              // href={"deleteRequest"}
+              className={styles.delete_request}
+              aria-label="削除"
+            > */}
+              <AlertButton
+                sx={{ width: "500px", color: "white",}}
+                title={"削除"}
+                message={`${
+                  "削除"
+                }しますか？`}
+                variant={"contained"}
+              />
+            {/* </Button> */}
+          </Grid>
+        </>
+      ) : (
+        <>
+          <Grid item xs={12} sx={{ textAlign: "center", mb: 3 }}>
+            <Button
+              href={"../lendItem"}
               className={styles.lend_item}
               aria-label="この商品を貸し出す"
             >
               この商品を貸し出す
             </Button>
-        </Grid></>
+          </Grid>
+        </>
       )}
-      <Grid item xs={12} className={styles.back_to_list} sx={{ textAlign: "center" }}>
-          <Button onClick={handleBack}>リクエスト一覧ページにもどる</Button>
+      <Grid
+        item
+        xs={12}
+        className={styles.back_to_list}
+        sx={{ textAlign: "center" }}
+      >
+        <Button href={"../requestList"}>リクエスト一覧ページにもどる</Button>
       </Grid>
     </div>
   );

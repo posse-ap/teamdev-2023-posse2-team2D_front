@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HomePage } from "./pages/homePage/HomePage";
 import { RequestList } from "./pages/request/RequestList";
 import  CreateRequest  from "./pages/request/CreateRequest";
+import  EditRequest  from "./pages/request/EditRequest";
 import  RequestDetail  from "./pages/request/RequestDetail";
 import { Bookmark } from "./pages/Bookmark";
 import  Table  from "./components/Table";
@@ -43,8 +44,8 @@ const [bookmark, setBookmark] = useState({ is_bookmark: false });
           <Route path="holdEvent" element={<KnowledgeUpload />} />
           {/* リクエスト関連 */}
           <Route path="requestList" element={<RequestList />} />
-          {/* <Route path={`/request/:id`} element={request ? <RequestDetail request={request} /> : <Table />} /> */}
           <Route path={`request/:id`} element={<RequestDetail />} />
+          <Route path={`request/edit/:id`} element={<EditRequest />} />
           <Route path="createRequest" element={<CreateRequest />} />
           {/* 商品/ナレッジ取引一覧ページ */}
           <Route path="itemTransactionList" element={<ItemTransactionList />} />
