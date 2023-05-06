@@ -106,7 +106,9 @@ const LentHistory = () => {
           padding: "0 10px 10px",
         }}
       >
-        <h2 style={{ margin: 0, fontSize: "20px"}}>月末獲得ポイント:{"値埋め込み"}</h2>
+        <h2 style={{ margin: 0, fontSize: "20px" }}>
+          月末獲得ポイント:{"値埋め込み"}
+        </h2>
       </Container>
       <SimpleTabs
         labels={["出品中", "貸出中", "貸し出し申請中"]}
@@ -124,27 +126,34 @@ const LentHistory = () => {
                   <div>
                     <ListItem key={item.id}>
                       <Grid container spacing={2} alignItems="center">
-                        <Grid item>
+                        <Grid item xs={1}>
                           <ListItemAvatar>
-                            <Avatar alt="画像" src={`${item.img}`} />
+                            <Avatar
+                              sx={{ borderRadius: "5px" }}
+                              alt="画像"
+                              src={`${item.img}`}
+                            />
                           </ListItemAvatar>
                         </Grid>
-                        <Grid item xs>
+                        <Grid item xs={2}>
                           <ListItemText
                             primary={item.name}
                             secondary={item.date}
                           />
                         </Grid>
-                        <Grid item xs={5}>
+                        <Grid item xs={6}>
                           <ListItemText
-                            primary={<CurrencyExchangeIcon/>}
+                            primary={<CurrencyExchangeIcon />}
                             secondary={item.points}
                           />
                         </Grid>
-                        <Grid item xs={3} sx={{textAlign: "right"}}>
-                              <Button variant="contained" sx={{ right: "0" }}>
-                                詳細
-                              </Button>
+                        <Grid item xs={3} sx={{ textAlign: "right" }}>
+                          <Button
+                            variant="contained"
+                            sx={{ fontWeight: "bold", right: "0" }}
+                          >
+                            詳細
+                          </Button>
                         </Grid>
                         {/* <Grid item xs={3} sx={{ textAlign: "right" }}>
                           <Grid container spacing={1}>
@@ -183,12 +192,16 @@ const LentHistory = () => {
                   <div>
                     <ListItem key={item.id}>
                       <Grid container spacing={2} alignItems="center">
-                        <Grid item>
+                        <Grid item xs>
                           <ListItemAvatar>
-                            <Avatar sx={{}} alt="画像" src={`${item.img}`} />
+                            <Avatar
+                              sx={{ borderRadius: "5px" }}
+                              alt="画像"
+                              src={`${item.img}`}
+                            />
                           </ListItemAvatar>
                         </Grid>
-                        <Grid item xs>
+                        <Grid item xs={2}>
                           <ListItemText
                             primary={item.name}
                             secondary={item.date}
@@ -196,24 +209,31 @@ const LentHistory = () => {
                         </Grid>
                         <Grid item xs>
                           <ListItemText
-                            primary={<AndroidIcon/>}
+                            primary={<AndroidIcon />}
                             secondary={item.borrower}
                           />
                         </Grid>
                         <Grid item xs={5}>
                           <ListItemText
-                            primary={<CurrencyExchangeIcon/>}
+                            primary={<CurrencyExchangeIcon />}
                             secondary={item.points}
                           />
                         </Grid>
-                        <Grid item xs={3} sx={{textAlign: "right"}}>
-                              <Button variant="contained" sx={{ right: "0" }}>
-                                詳細
-                              </Button>
+                        <Grid item xs={3} sx={{ textAlign: "right" }}>
+                          <Button
+                            variant="contained"
+                            sx={{ fontWeight: "bold", right: "0" }}
+                          >
+                            詳細
+                          </Button>
                         </Grid>
                       </Grid>
                     </ListItem>
-                    <Divider variant="inset" component="li" />
+                    <Divider
+                      variant="inset"
+                      component="li"
+                      sx={{ width: "100%" }}
+                    />
                   </div>
                 ))}
               </List>
@@ -232,29 +252,41 @@ const LentHistory = () => {
                   <div>
                     <ListItem key={item.id}>
                       <Grid container spacing={2} alignItems="center">
-                        <Grid item>
+                        <Grid item xs={1}>
                           <ListItemAvatar>
-                            <Avatar alt="画像" src={`${item.img}`} />
+                            <Avatar
+                              sx={{ borderRadius: "5px" }}
+                              alt="画像"
+                              src={`${item.img}`}
+                            />
                           </ListItemAvatar>
                         </Grid>
-                        <Grid item xs>
+                        <Grid item xs={2}>
                           <ListItemText
                             primary={item.name}
                             secondary={item.date}
                           />
                         </Grid>
-                        <Grid item xs={5}>
+                        <Grid item xs={3}>
                           <ListItemText
-                            primary={<CurrencyExchangeIcon/>}
+                            primary={<CurrencyExchangeIcon />}
                             secondary={`${item.points}希望`}
                           />
                         </Grid>
-                        <Grid item xs={3} sx={{ textAlign: "right" }}>
-                        <AlertButton
-                                title="申請を取り下げ"
-                                message="申請を取り下げますか？"
-                                variant="contained"
-                              />
+                        <Grid item xs={4} sx={{ textAlign: "right" }}>
+                          <AlertButton
+                            title="申請を取り下げ"
+                            message="申請を取り下げますか？"
+                            variant="contained"
+                          />
+                        </Grid>
+                        <Grid item xs={2} sx={{ textAlign: "right" }}>
+                          <Button
+                            variant="contained"
+                            sx={{ fontWeight: "bold", right: "0" }}
+                          >
+                            詳細
+                          </Button>
                         </Grid>
                       </Grid>
                     </ListItem>

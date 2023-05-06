@@ -98,7 +98,7 @@ const ParticipationHistory = () => {
                           />
                         </Grid>
                         <Grid item xs={3} sx={{ textAlign: "right" }}>
-                          <Button variant="contained" sx={{ right: "0" }}>
+                          <Button variant="contained" sx={{ fontWeight: "bold", right: "0" }}>
                             詳細
                           </Button>
                         </Grid>
