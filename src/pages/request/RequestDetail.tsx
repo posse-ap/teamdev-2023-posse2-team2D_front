@@ -1,7 +1,6 @@
 import React from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styles from "../item/Item.module.scss";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { Box, Button, Grid, Typography } from "@mui/material";
 import logo from "../../logo.jpg";
 

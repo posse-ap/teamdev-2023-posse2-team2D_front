@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HomePage } from "./pages/homePage/HomePage";
 import { RequestList } from "./pages/request/RequestList";
+import  CreateRequest  from "./pages/request/CreateRequest";
 import  RequestDetail  from "./pages/request/RequestDetail";
 import { Bookmark } from "./pages/Bookmark";
 import  Table  from "./components/Table";
 import { Sample1Page }  from "./pages/sample1Page/Sample1Page";
 import { Sample2Page } from "./pages/sample2Page/Sample2Page";
-// import SamplePage3 from "./components/SamplePage3";
 import { SamplePage3 } from "./components/SamplePage3";
 import { SamplePage4, SamplePage4Child1, SamplePage4Child2, SamplePage4Child3 } from "./components/SamplePage4";
 import { NotFound } from "./components/NotFound";
@@ -45,7 +45,7 @@ const [bookmark, setBookmark] = useState({ is_bookmark: false });
           <Route path="requestList" element={<RequestList />} />
           {/* <Route path={`/request/:id`} element={request ? <RequestDetail request={request} /> : <Table />} /> */}
           <Route path={`request/:id`} element={<RequestDetail />} />
-
+          <Route path="createRequest" element={<CreateRequest />} />
           {/* 商品/ナレッジ取引一覧ページ */}
           <Route path="itemTransactionList" element={<ItemTransactionList />} />
           <Route path="knowledgeTransactionList" element={<KnowledgeTransactionList />} />
