@@ -6,7 +6,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Control, Controller, FieldValues } from "react-hook-form";
 import { ImageUpload } from "../ImageUpload";
 
@@ -20,7 +20,7 @@ type Props = {
 
 const validationRules = {
   name: {
-    required: { value: true, message: "商品名を入力してください" },
+    required: "商品名を入力してください。",
     maxLength: { value: 40, message: "40文字以内で入力してください" },
   },
   desired_points: {
@@ -44,6 +44,17 @@ export const RegisterContent = ({
   setImages,
 }: // commentName,
 Props) => {
+  const [nameHelperText, setNameHelperText] = useState("0/40");
+  const [detailHelperText, setDetailHelperText] = useState("0/1000");
+
+  useEffect(() => {
+    setNameHelperText(`${nameHelperText.length}/40`);
+  }, [nameHelperText]);
+
+  useEffect(() => {
+    setDetailHelperText(`${detailHelperText.length}/1000`);
+  }, [detailHelperText]);
+
   return (
     <Grid container spacing={1} justifyContent="space-between">
       <Grid item xs={12} md={12} sx={{ mb: 3 }}>
@@ -91,6 +102,7 @@ Props) => {
         <Controller
           name="name"
           control={control}
+          defaultValue=""
           rules={validationRules.name}
           render={({ field, fieldState }) => (
             <FormControl
@@ -104,7 +116,7 @@ Props) => {
                 variant="outlined"
                 fullWidth
                 multiline
-                // helperText="例) MacBook Pro 13インチ 2019年モデル"
+                helperText={`${field.value.length}/40`}
               />
               <FormHelperText sx={{ position: "absolute", top: "100%", mb: 3 }}>
                 {fieldState.error?.message}
@@ -177,8 +189,9 @@ Props) => {
           商品詳細(1000文字以内)
         </Typography>
         <Controller
-          name="item_detail"
+          name="detail"
           control={control}
+          defaultValue=""
           rules={validationRules.comment}
           render={({ field, fieldState }) => (
             <FormControl
@@ -191,12 +204,10 @@ Props) => {
                 label="色、素材、定価、重さ、注意点など"
                 variant="outlined"
                 fullWidth
-                rows={4}
                 multiline
+                helperText={`${field.value.length}/1000`}
               />
-              <FormHelperText
-                sx={{ position: "absolute", top: "100%", m: 0.5 }}
-              >
+              <FormHelperText sx={{ position: "absolute", top: "100%", mb: 3 }}>
                 {fieldState.error?.message}
               </FormHelperText>
             </FormControl>

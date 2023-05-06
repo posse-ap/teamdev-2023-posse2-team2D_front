@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HomePage } from "./pages/homePage/HomePage";
+import { RequestList } from "./pages/request/RequestList";
+// import { RequestDetail } from "./pages/request/RequestDetail";
+import { Bookmark } from "./pages/Bookmark";
 import  Table  from "./components/Table";
 import { Sample1Page }  from "./pages/sample1Page/Sample1Page";
 import { Sample2Page } from "./pages/sample2Page/Sample2Page";
@@ -19,6 +22,9 @@ import AllTransactionList from "./pages/admin/AllTransactionList";
 
 
 export const App =() => {
+
+const [bookmark, setBookmark] = useState({ is_bookmark: false });
+
   return (
     <>
      <BrowserRouter>
@@ -26,12 +32,18 @@ export const App =() => {
         <Route path="" element={<Layout />}>
           {/* トップページ */}
           <Route index element={<HomePage />} />
+          {/* ブックマークページ */}
+          <Route path="bookmarkList" element={<Bookmark />} />
           {/* 商品/ナレッジ詳細ページ */}
-          <Route path="item/:id" element={<ItemDetail />} />
+          <Route path="item/:id" element={<ItemDetail setBookmark={setBookmark}/>} />
           <Route path="knowledge/:id" element={<KnowledgeDetail />} />
           {/* 商品/ナレッジ登録ページ */}
           <Route path="lendItem" element={<ItemUpload />} />
           <Route path="holdEvent" element={<KnowledgeUpload />} />
+          {/* リクエスト関連 */}
+          <Route path="requestList" element={<RequestList />} />
+          {/* <Route path="requestDetail" element={<RequestDetail />} /> */}
+
           {/* 商品/ナレッジ取引一覧ページ */}
           <Route path="itemTransactionList" element={<ItemTransactionList />} />
           <Route path="knowledgeTransactionList" element={<KnowledgeTransactionList />} />

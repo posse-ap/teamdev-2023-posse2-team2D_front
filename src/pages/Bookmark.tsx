@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./HomePage.module.scss";
+import styles from "./homePage/HomePage.module.scss";
 import {
   Avatar,
   AvatarGroup,
@@ -14,10 +14,10 @@ import {
 } from "@mui/material";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
-import event_default from "../../event_default.jpg";
-import logo from "../../logo.jpg";
-import SimpleTabs from "../../components/SimpleTabs";
-import { useSnackbar } from "../../components/snackbar/Snackbar";
+import event_default from "../event_default.jpg";
+import logo from "../logo.jpg";
+import SimpleTabs from "../components/SimpleTabs";
+import { useSnackbar } from "../components/snackbar/Snackbar";
 
 type ItemData = {
   id: number;
@@ -761,16 +761,21 @@ const knowledgeData: KnowledgeData[] = [
   },
 ];
 
-export const HomePage = () => {
+export const Bookmark = () => {
   const { showSnackbar } = useSnackbar();
   const [active, setActive] = useState(false);
   const classToggle = () => {
     setActive(!active);
   };
 
+const bookmarkedItems = itemData.filter((item) => item.is_bookmark);
+const bookmarkedKnowledge = knowledgeData.filter((knowledge) => knowledge.is_bookmark);
+
+
   return (
     <>
       <div className={styles.root}>
+        <h1 style={{fontSize: "24px", textAlign: "center"}}>ブックマーク</h1>
         <Box
           sx={{
             width: "90%",
@@ -785,7 +790,7 @@ export const HomePage = () => {
               {/* 商品表示 */}
               <Box sx={{ width: "100%", margin: "auto" }}>
                 <Grid container spacing={4}>
-                  {itemData.map((item) => (
+                  {bookmarkedItems.map((item) => (
                     <Grid item xs={6} md={4} lg={3} key={item.id}>
                       <Card sx={{ maxWidth: 500 }}>
                         <CardActionArea href={"item/" + item.id}>
@@ -889,7 +894,7 @@ export const HomePage = () => {
               {/* ナレッジ表示 */}
               <Box sx={{ width: "100%", margin: "auto" }}>
                 <Grid container spacing={4}>
-                  {knowledgeData.map((knowledge) => (
+                  {bookmarkedKnowledge.map((knowledge) => (
                     <Grid item xs={6} md={4} lg={3} key={knowledge.id}>
                       <Card sx={{ maxWidth: 500 }}>
                         <CardActionArea href={"knowledge/" + knowledge.id}>

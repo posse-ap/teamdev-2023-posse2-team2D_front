@@ -8,6 +8,9 @@ import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import CategoryIcon from '@mui/icons-material/Category';
 import SchoolIcon from '@mui/icons-material/School';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+
 
 type Props = {
   handleMenuItemClick: (key: string, path: string) => void;
@@ -22,7 +25,21 @@ type DrawerItem = {
   allowedRoles: string[];
 };
 
+type IndividualItem = {
+  key: string;
+  text: string;
+  icon: ReactNode;
+  path: string;
+};
+
 const drawerMenuList: DrawerItem[] = [
+  {
+    key: 'bookmarkList',
+    text: 'ブックマーク',
+    icon: <BookmarkIcon />,
+    path: 'bookmarkList',
+    allowedRoles: ['admin', 'student'],
+  },
   {
     key: 'userList',
     text: 'ユーザー一覧',
@@ -74,6 +91,15 @@ const drawerMenuList: DrawerItem[] = [
   },
 ];
 
+const individualItem: IndividualItem[] = [
+  {
+    key: 'Mypage',
+    text: 'マイページ',
+    icon: <AccountCircleIcon />,
+    path: 'mypage',
+  },
+];
+
 export default function SideMenu({ handleMenuItemClick, onClose }: Props) {
   return (
   <>
@@ -93,6 +119,19 @@ export default function SideMenu({ handleMenuItemClick, onClose }: Props) {
     <Divider />
     <List>
       {drawerMenuList.map(({ key, text, icon, path }) => (
+        <Box key={key}>
+          <ListItem disablePadding onClick={() => handleMenuItemClick(key, path)}>
+            <ListItemButton sx={{ pl: 4, pr: 8, py: 1 }}>
+              {icon}
+              <ListItemText primary={text} sx={{ ml: 2 }} />
+            </ListItemButton>
+          </ListItem>
+        </Box>
+      ))}
+    </List>
+    <Divider />
+    <List>
+      {individualItem.map(({ key, text, icon, path }) => (
         <Box key={key}>
           <ListItem disablePadding onClick={() => handleMenuItemClick(key, path)}>
             <ListItemButton sx={{ pl: 4, pr: 8, py: 1 }}>
