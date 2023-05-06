@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styles from "../homePage/HomePage.module.scss";
 import {
   Avatar,
-  Fab,
   Box,
   Grid,
   Card,
@@ -14,17 +13,16 @@ import {
 import SimpleTabs from "../../components/SimpleTabs";
 import logo from "../../logo.jpg";
 
-
-type RequestData = {
+export type RequestData = {
   id: number;
   title: string;
   requester: { name: string; img: string };
   content: string;
   state: number; //リクエスト状態 1:リクエスト中 2:出品されたもの
-  is_mine: boolean
+  is_mine: boolean;
 };
 
-const requestData: RequestData[] = [
+export const requestData: RequestData[] = [
   {
     id: 1,
     title: "AirPods Pro",
@@ -32,9 +30,10 @@ const requestData: RequestData[] = [
       name: "2期生 あさか",
       img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
     },
-    content: "チーム開発のために２ヶ月ほどお借りしたいなとおもってます！これ以上にスペックが高いとそれは更にうれしいです。",
+    content:
+      "チーム開発のために２ヶ月ほどお借りしたいなとおもってます！これ以上にスペックが高いとそれは更にうれしいです。",
     state: 1,
-    is_mine: false
+    is_mine: false,
   },
   {
     id: 2,
@@ -45,7 +44,7 @@ const requestData: RequestData[] = [
     },
     content: "チーム開発のために２ヶ月ほどお借りしたいなとおもってます！",
     state: 1,
-    is_mine: true
+    is_mine: true,
   },
   {
     id: 3,
@@ -56,7 +55,7 @@ const requestData: RequestData[] = [
     },
     content: "チーム開発のために２ヶ月ほどお借りしたいなとおもってます！",
     state: 1,
-    is_mine: true
+    is_mine: true,
   },
   {
     id: 4,
@@ -67,7 +66,7 @@ const requestData: RequestData[] = [
     },
     content: "チーム開発のために２ヶ月ほどお借りしたいなとおもってます！",
     state: 1,
-    is_mine: false
+    is_mine: false,
   },
   {
     id: 5,
@@ -78,7 +77,7 @@ const requestData: RequestData[] = [
     },
     content: "チーム開発のために２ヶ月ほどお借りしたいなとおもってます！",
     state: 1,
-    is_mine: true
+    is_mine: true,
   },
   {
     id: 6,
@@ -89,7 +88,7 @@ const requestData: RequestData[] = [
     },
     content: "チーム開発のために２ヶ月ほどお借りしたいなとおもってます！",
     state: 1,
-    is_mine: false
+    is_mine: false,
   },
   {
     id: 7,
@@ -100,7 +99,7 @@ const requestData: RequestData[] = [
     },
     content: "チーム開発のために２ヶ月ほどお借りしたいなとおもってます！",
     state: 1,
-    is_mine: true
+    is_mine: true,
   },
   {
     id: 8,
@@ -111,7 +110,7 @@ const requestData: RequestData[] = [
     },
     content: "チーム開発のために２ヶ月ほどお借りしたいなとおもってます！",
     state: 1,
-    is_mine: false
+    is_mine: false,
   },
 ];
 
@@ -154,11 +153,17 @@ export const RequestList = () => {
                             >
                               {request.content}
                             </Typography>
-                            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
+                            <Box
+                              sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "flex-end",
+                              }}
+                            >
                               <Avatar
                                 alt={request.requester.name}
                                 src={request.requester.img}
-                                sx={{ width: 24, height: 24, mr: 1}}
+                                sx={{ width: 24, height: 24, mr: 1 }}
                               />
                               <Typography
                                 variant="body2"
@@ -190,7 +195,7 @@ export const RequestList = () => {
                   {myRequests.map((myRequest) => (
                     <Grid item xs={6} md={4} lg={3} key={myRequest.id}>
                       <Card sx={{ maxWidth: 500 }}>
-                        <CardActionArea href={"myRequest/" + myRequest.id}>
+                        <CardActionArea href={"request/" + myRequest.id}>
                           <CardContent sx={{ padding: 1 }}>
                             <Typography
                               sx={{ fontsize: "18px", mb: 2 }}
@@ -206,11 +211,17 @@ export const RequestList = () => {
                             >
                               {myRequest.content}
                             </Typography>
-                            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
+                            <Box
+                              sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "flex-end",
+                              }}
+                            >
                               <Avatar
                                 alt={myRequest.requester.name}
                                 src={myRequest.requester.img}
-                                sx={{ width: 24, height: 24, mr: 1}}
+                                sx={{ width: 24, height: 24, mr: 1 }}
                               />
                               <Typography
                                 variant="body2"
