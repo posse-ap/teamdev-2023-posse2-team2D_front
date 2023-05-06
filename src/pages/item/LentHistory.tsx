@@ -21,7 +21,6 @@ const exhibitData = [
     points: 100,
     date: "2021/10/01",
     status: 0,
-    owner: "かしけん",
   },
   {
     id: 2,
@@ -30,7 +29,6 @@ const exhibitData = [
     points: 200,
     date: "2021/10/02",
     status: 1,
-    owner: "かしけん",
   },
   {
     id: 3,
@@ -39,7 +37,6 @@ const exhibitData = [
     points: 300,
     date: "2021/10/03",
     status: 2,
-    owner: "かしけん",
   },
 ];
 
