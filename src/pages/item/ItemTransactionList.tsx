@@ -16,7 +16,7 @@ const ItemTransactionList = () => {
           padding: "10px",
         }}
         >
-          <h1>商品取引一覧</h1>
+          <h1 style={{fontSize: "24px", textAlign: "center"}}>商品取引一覧</h1>
         </Container>
         <SelectBar
           option1="貸し出した商品"

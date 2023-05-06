@@ -37,10 +37,10 @@ const LentHistory = () => {
       <Container
         sx={{
           textAlign: "right",
-          padding: "10px",
+          padding: "0 10px 10px",
         }}
       >
-        <h2>月末獲得ポイント:{"値埋め込み"}</h2>
+        <h2 style={{ margin: 0, fontSize: "20px"}}>月末獲得ポイント:{"値埋め込み"}</h2>
       </Container>
       <Container
         sx={{
@@ -66,20 +66,20 @@ const LentHistory = () => {
                       secondary={`${knowledge.member}人`}
                     />
                   </Grid>
-                  <Grid item xs={5}>
+                  <Grid item xs={4}>
                     <ListItemText
                       primary={<CurrencyExchangeIcon />}
                       secondary={`合計${knowledge.points}`}
                     />
                   </Grid>
-                  <Grid item xs={3} sx={{ textAlign: "right" }}>
-                    <Grid container spacing={1}>
-                      <Grid item xs={6}>
-                        <Button variant="contained" sx={{ right: "0" }}>
+                  <Grid item xs={4} sx={{ textAlign: "right" }}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={4}>
+                        <Button variant="outlined" sx={{ fontWeight: "bold", right: "0" }}>
                           開催報告
                         </Button>
                       </Grid>
-                      <Grid item xs={6}>
+                      <Grid item xs={4}>
                         <AlertButton
                           title={
                             knowledge.status == 0 ? "開催停止" : "開催再開"
@@ -91,6 +91,11 @@ const LentHistory = () => {
                             knowledge.status == 0 ? "contained" : "outlined"
                           }`}
                         />
+                      </Grid>
+                      <Grid item xs={3} sx={{ textAlign: "right" }}>
+                        <Button variant="contained" sx={{ fontWeight: "bold", right: "0" }}>
+                          詳細
+                        </Button>
                       </Grid>
                     </Grid>
                   </Grid>

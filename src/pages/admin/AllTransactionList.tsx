@@ -1,9 +1,11 @@
 const AllTransactionList = () => {
-  return(
+  return (
     <>
-      <h1>AllTransactionList</h1>
+      <h1 style={{ fontSize: "24px", textAlign: "center" }}>
+        AllTransactionList
+      </h1>
     </>
   );
-}
+};
 
 export default AllTransactionList;

@@ -41,7 +41,8 @@ const Header = () => {
             />
             <Drawer
               anchor={'left'}
-              open={drawerOpened}>
+              open={drawerOpened}
+              onClick={() => setDrawerOpened(false)}>
               <SideMenu 
                 handleMenuItemClick={handleMenuItemClick}
                 onClose={() => setDrawerOpened(false)}

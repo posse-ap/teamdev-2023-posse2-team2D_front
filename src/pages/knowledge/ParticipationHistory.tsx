@@ -58,10 +58,10 @@ const ParticipationHistory = () => {
       <Container
         sx={{
           textAlign: "right",
-          padding: "10px",
+          padding: "0 10px 10px",
         }}
       >
-        <h2>今月の消費ポイント:{"値埋め込み"}</h2>
+        <h2 style={{margin: 0, fontSize: "20px"}}>今月の消費ポイント:{"値埋め込み"}</h2>
       </Container>
       <SimpleTabs
         labels={["予約中", "参加済"]}
@@ -71,7 +71,7 @@ const ParticipationHistory = () => {
               sx={{
                 width: "100%",
                 textAlign: "center",
-                padding: "10px",
+                padding: "0 10px",
               }}
             >
               <List sx={{ width: "100%", bgcolor: "background.paper" }}>

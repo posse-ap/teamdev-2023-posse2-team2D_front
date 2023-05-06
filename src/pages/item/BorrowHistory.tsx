@@ -73,10 +73,10 @@ const BorrowHistory = () => {
       <Container
         sx={{
           textAlign: "right",
-          padding: "10px",
+          padding: "0 10px 10px",
         }}
         >
-          <h2>今月の消費ポイント:{'値埋め込み'}</h2>
+          <h2 style={{ margin: 0, fontSize: "20px"}}>今月の消費ポイント:{'値埋め込み'}</h2>
         </Container>
       <SimpleTabs
         labels={["借用中", "返却済"]}
@@ -86,10 +86,11 @@ const BorrowHistory = () => {
               sx={{
                 width: "100%",
                 textAlign: "center",
-                padding: "10px",
+                px: "10px",
+                pt: 0
               }}
             >
-              <List sx={{ width: "100%", bgcolor: "background.paper" }}>
+              <List sx={{ mt: 0, width: "100%", bgcolor: "background.paper" }}>
                 {BorrowData.map((item) => (
                   <div>
                     <ListItem key={item.id}>
@@ -137,7 +138,7 @@ const BorrowHistory = () => {
               sx={{
                 width: "100%",
                 textAlign: "center",
-                padding: "10px",
+                padding: "0 10px 10px",
               }}
             >
               <List sx={{ width: "100%", bgcolor: "background.paper" }}>
@@ -194,4 +195,3 @@ const BorrowHistory = () => {
 };
 
 export default BorrowHistory;
-

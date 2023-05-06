@@ -103,10 +103,10 @@ const LentHistory = () => {
       <Container
         sx={{
           textAlign: "right",
-          padding: "10px",
+          padding: "0 10px 10px",
         }}
       >
-        <h2>月末獲得ポイント:{"値埋め込み"}</h2>
+        <h2 style={{ margin: 0, fontSize: "20px"}}>月末獲得ポイント:{"値埋め込み"}</h2>
       </Container>
       <SimpleTabs
         labels={["出品中", "貸出中", "貸し出し申請中"]}
@@ -141,7 +141,12 @@ const LentHistory = () => {
                             secondary={item.points}
                           />
                         </Grid>
-                        <Grid item xs={3} sx={{ textAlign: "right" }}>
+                        <Grid item xs={3} sx={{textAlign: "right"}}>
+                              <Button variant="contained" sx={{ right: "0" }}>
+                                詳細
+                              </Button>
+                        </Grid>
+                        {/* <Grid item xs={3} sx={{ textAlign: "right" }}>
                           <Grid container spacing={1}>
                             <Grid item xs={6}>
                               <Button variant="contained" sx={{right: "0" }}>
@@ -150,13 +155,13 @@ const LentHistory = () => {
                             </Grid>
                             <Grid item xs={6}>
                               <AlertButton
-                                title={item.status == 0 ? "非公開" : "再公開"}
-                                message={`${item.status == 0 ? "非公開" : "再公開"}しますか？`}
+                                title={item.status == 0 ? "非公開" : "公開開始"}
+                                message={`${item.status == 0 ? "非公開" : "公開開始"}しますか？`}
                                 variant={item.status == 0 ? "contained" : "outlined"}
                               />
                             </Grid>
                           </Grid>
-                        </Grid>
+                        </Grid> */}
                       </Grid>
                     </ListItem>
                     <Divider variant="inset" component="li" />
@@ -180,7 +185,7 @@ const LentHistory = () => {
                       <Grid container spacing={2} alignItems="center">
                         <Grid item>
                           <ListItemAvatar>
-                            <Avatar alt="画像" src={`${item.img}`} />
+                            <Avatar sx={{}} alt="画像" src={`${item.img}`} />
                           </ListItemAvatar>
                         </Grid>
                         <Grid item xs>
