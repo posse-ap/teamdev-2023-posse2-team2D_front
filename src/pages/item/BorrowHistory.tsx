@@ -47,8 +47,8 @@ import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
       img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
       name: "キーボード",
       points: 100,
-      returnDate: "2021/10/01",
-      status: 2,
+      returnDate: "",
+      status: 0,
       owner: "りさ",
     },
     {
@@ -65,7 +65,7 @@ import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 
 const BorrowHistory = () => {
 
-const borrowingItems = borrowItemData.filter((item) => item.status == 1);
+const borrowingItems = borrowItemData.filter((item) => item.status == 0 || item.status == 1);
 const returnedItems = borrowItemData.filter((item) => item.status == 2);
 
 
@@ -113,18 +113,26 @@ const returnedItems = borrowItemData.filter((item) => item.status == 2);
                             secondary={item.owner}
                           />
                         </Grid>
-                        <Grid item xs={5}>
+                        <Grid item xs={3}>
                           <ListItemText
                             primary={<CurrencyExchangeIcon/>}
                             secondary={item.points}
                           />
                         </Grid>
                         <Grid item xs={3} sx={{ textAlign: "right" }}>
-                              <AlertButton
-                                title={item.status == 0 ? "キャンセル" : "返却"}
-                                message={`${item.status == 0 ? "キャンセル" : "返却"}しますか？`}
-                                variant="contained"
-                              />
+                          <AlertButton
+                            title={item.status == 0 ? "キャンセル" : "返却"}
+                            message={`${item.status == 0 ? "キャンセル" : "返却"}しますか？`}
+                            variant="contained"
+                          />
+                        </Grid>
+                        <Grid item xs={2} sx={{ textAlign: "right" }}>
+                          <Button
+                            variant="contained"
+                            sx={{ fontWeight: "bold", right: "0" }}
+                          >
+                            詳細
+                          </Button>
                         </Grid>
                       </Grid>
                     </ListItem>

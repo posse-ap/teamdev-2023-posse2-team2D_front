@@ -29,6 +29,7 @@ const lendItemData = [
     points: 200,
     date: "2021/10/02",
     status: 1,
+    borrower: "",
   },
   {
     id: 3,
@@ -37,6 +38,7 @@ const lendItemData = [
     points: 300,
     date: "2021/10/03",
     status: 2,
+    borrower: "かしけん",
   },
   {
     id: 5,
@@ -45,7 +47,7 @@ const lendItemData = [
     points: 100,
     date: "2021/10/01",
     status: 3,
-    borrower: "かしけん",
+    borrower: "",
   },
   {
     id: 6,
@@ -54,7 +56,7 @@ const lendItemData = [
     points: 200,
     date: "2021/10/02",
     status: 1,
-    borrower: "かしけん",
+    borrower: "",
   },
   {
     id: 9,
@@ -72,6 +74,7 @@ const lendItemData = [
     points: 10000,
     date: "2021/10/01",
     status: 3,
+    borrower: "",
   },
   {
     id: 200,
@@ -80,6 +83,7 @@ const lendItemData = [
     points: 20000,
     date: "2021/10/02",
     status: 1,
+    borrower: "",
   },
   {
     id: 300,
@@ -88,6 +92,7 @@ const lendItemData = [
     points: 300,
     date: "2021/10/03",
     status: 2,
+    borrower: "かしけん",
   },
 ];
 
