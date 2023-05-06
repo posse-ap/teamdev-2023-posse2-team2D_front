@@ -246,7 +246,7 @@ const LentHistory = () => {
                         </Grid>
                         <Grid item xs={3} sx={{ textAlign: "right" }}>
                         <AlertButton
-                                title="申請を取り下げる"
+                                title="申請を取り下げ"
                                 message="申請を取り下げますか？"
                                 variant="contained"
                               />
