@@ -1,11 +1,9 @@
-import SimpleTabs from "../../components/SimpleTabs";
+import * as React from "react";
 import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
-import AndroidIcon from "@mui/icons-material/Android";
 import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 import AlertButton from "../../components/Alertbutton";
-import * as React from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
