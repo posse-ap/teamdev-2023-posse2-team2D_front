@@ -44,25 +44,16 @@ export const RegisterContent = ({
   setImages,
 }: // commentName,
 Props) => {
-  const [value_title, setValueTitle] = useState("");
-  const [value_detail, setValueDetail] = useState("");
-
   const [nameHelperText, setNameHelperText] = useState("0/40");
   const [detailHelperText, setDetailHelperText] = useState("0/1000");
 
   useEffect(() => {
-    setNameHelperText(`${value_title.length}/40`);
-  }, [value_title]);
+    setNameHelperText(`${nameHelperText.length}/40`);
+  }, [nameHelperText]);
 
   useEffect(() => {
-    setDetailHelperText(`${value_detail.length}/1000`);
-  }, [value_detail]);
-
-  const handleChangeDetail = (event: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
-    setValueDetail(event.target.value);
-  };
+    setDetailHelperText(`${detailHelperText.length}/1000`);
+  }, [detailHelperText]);
 
   return (
     <Grid container spacing={1} justifyContent="space-between">
@@ -214,7 +205,7 @@ Props) => {
                 variant="outlined"
                 fullWidth
                 multiline
-                helperText={`${field.value.length}/40`}
+                helperText={`${field.value.length}/1000`}
               />
               <FormHelperText sx={{ position: "absolute", top: "100%", mb: 3 }}>
                 {fieldState.error?.message}
