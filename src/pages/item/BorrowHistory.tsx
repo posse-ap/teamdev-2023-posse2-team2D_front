@@ -97,7 +97,7 @@ const BorrowHistory = () => {
                       <Grid container spacing={2} alignItems="center">
                         <Grid item>
                           <ListItemAvatar>
-                            <Avatar alt="画像" src={`${item.img}`} />
+                            <Avatar alt="画像" sx={{ borderRadius: "5px" }} src={`${item.img}`} />
                           </ListItemAvatar>
                         </Grid>
                         <Grid item xs>
@@ -148,7 +148,7 @@ const BorrowHistory = () => {
                       <Grid container spacing={2} alignItems="center">
                         <Grid item>
                           <ListItemAvatar>
-                            <Avatar alt="画像" src={`${item.img}`} />
+                            <Avatar alt="画像" sx={{ borderRadius: "5px" }} src={`${item.img}`} />
                           </ListItemAvatar>
                         </Grid>
                         <Grid item xs>
