@@ -775,6 +775,7 @@ const bookmarkedKnowledge = knowledgeData.filter((knowledge) => knowledge.is_boo
   return (
     <>
       <div className={styles.root}>
+        <h1 style={{fontSize: "24px", textAlign: "center"}}>ブックマーク</h1>
         <Box
           sx={{
             width: "90%",
