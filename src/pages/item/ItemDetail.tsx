@@ -57,7 +57,7 @@ const item: Item = {
   id: 1,
   price: 1000,
   title: "MacbookPro 2018 core i7 2.6GHz 16GB 512GB",
-  state: 1,
+  state: 2,
   is_bookmark: true,
   ownerInfo: { id: 1, name: "かしけん", img: logo },
   img: [
