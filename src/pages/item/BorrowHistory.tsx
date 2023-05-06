@@ -14,24 +14,22 @@ import Avatar from "@mui/material/Avatar";
 import Container from "@mui/material/Container";
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 
-const BorrowHistory = () => {
-
-  const BorrowData = [
+  const borrowItemData = [
     {
       id: 1,
       img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
       name: "パソコン",
       points: 100,
-      date: "2021/10/01",
-      status: 0,
+      returnDate: "2021/10/01",
+      status: 2,
       owner: "なおき",
     },
     {
       id: 2,
-      img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+      img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
       name: "参考書",
       points: 100,
-      date: "2021/10/01",
+      returnDate: "",
       status: 1,
       owner: "けんてぃ",
     },
@@ -40,22 +38,19 @@ const BorrowHistory = () => {
       img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
       name: "ヘッドホン",
       points: 100,
-      date: "2021/10/01",
+      returnDate: "",
       status: 1,
       owner: "えいき",
     },
     {
       id: 4,
-      img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+      img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
       name: "キーボード",
       points: 100,
-      date: "2021/10/01",
-      status: 0,
+      returnDate: "2021/10/01",
+      status: 2,
       owner: "りさ",
-    }
-  ];
-
-  const ReturnedData = [
+    },
     {
       id: 1,
       img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
@@ -63,10 +58,16 @@ const BorrowHistory = () => {
       points: 70,
       date: "2021/10/01",
       returnDate: "2021/10/02",
-      status: 0,
+      status: 2,
       owner: "おのかん",
     }
   ];
+
+const BorrowHistory = () => {
+
+const borrowingItems = borrowItemData.filter((item) => item.status == 1);
+const returnedItems = borrowItemData.filter((item) => item.status == 2);
+
 
   return (
     <div>
@@ -91,7 +92,7 @@ const BorrowHistory = () => {
               }}
             >
               <List sx={{ mt: 0, width: "100%", bgcolor: "background.paper" }}>
-                {BorrowData.map((item) => (
+                {borrowingItems.map((item) => (
                   <div>
                     <ListItem key={item.id}>
                       <Grid container spacing={2} alignItems="center">
@@ -142,7 +143,7 @@ const BorrowHistory = () => {
               }}
             >
               <List sx={{ width: "100%", bgcolor: "background.paper" }}>
-                {ReturnedData.map((item) => (
+                {returnedItems.map((item) => (
                   <div>
                     <ListItem key={item.id}>
                       <Grid container spacing={2} alignItems="center">

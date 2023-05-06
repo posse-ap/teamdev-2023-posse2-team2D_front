@@ -13,47 +13,44 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import Container from "@mui/material/Container";
 
-const exhibitData = [
+const lendItemData = [
   {
     id: 1,
-    img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
     name: "パソコン",
+    img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
     points: 100,
     date: "2021/10/01",
-    status: 0,
+    status: 3,
   },
   {
     id: 2,
-    img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
     name: "ディスプレイ",
+    img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
     points: 200,
     date: "2021/10/02",
     status: 1,
   },
   {
     id: 3,
-    img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
     name: "カメラ",
+    img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
     points: 300,
     date: "2021/10/03",
     status: 2,
   },
-];
-
-const lendData = [
   {
     id: 5,
-    img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
     name: "充電器",
+    img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
     points: 100,
     date: "2021/10/01",
-    status: 0,
+    status: 3,
     borrower: "かしけん",
   },
   {
     id: 6,
-    img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
     name: "ディスプレイ",
+    img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
     points: 200,
     date: "2021/10/02",
     status: 1,
@@ -61,36 +58,33 @@ const lendData = [
   },
   {
     id: 9,
-    img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
     name: "マウス",
+    img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
     points: 300,
     date: "2021/10/03",
     status: 2,
     borrower: "かしけん",
   },
-];
-
-const lendRequestData = [
   {
     id: 100,
-    img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
     name: "トランプ",
+    img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
     points: 10000,
     date: "2021/10/01",
-    status: 0,
+    status: 3,
   },
   {
     id: 200,
-    img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
     name: "GitHubアカウント",
+    img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
     points: 20000,
     date: "2021/10/02",
     status: 1,
   },
   {
     id: 300,
-    img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
     name: "イヤホン",
+    img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
     points: 300,
     date: "2021/10/03",
     status: 2,
@@ -98,6 +92,12 @@ const lendRequestData = [
 ];
 
 const LentHistory = () => {
+
+const forSaleItems = lendItemData.filter((item) => item.status == 1);
+const lendingItems = lendItemData.filter((item) => item.status == 2);
+const requestingItems = lendItemData.filter((item) => item.status == 3);
+
+
   return (
     <div>
       <Container
@@ -122,7 +122,7 @@ const LentHistory = () => {
               }}
             >
               <List sx={{ width: "100%", bgcolor: "background.paper" }}>
-                {exhibitData.map((item) => (
+                {forSaleItems.map((item) => (
                   <div>
                     <ListItem key={item.id}>
                       <Grid container spacing={2} alignItems="center">
@@ -188,7 +188,7 @@ const LentHistory = () => {
               }}
             >
               <List sx={{ width: "100%", bgcolor: "background.paper" }}>
-                {lendData.map((item) => (
+                {lendingItems.map((item) => (
                   <div>
                     <ListItem key={item.id}>
                       <Grid container spacing={2} alignItems="center">
@@ -248,7 +248,7 @@ const LentHistory = () => {
               }}
             >
               <List sx={{ width: "100%", bgcolor: "background.paper" }}>
-                {lendRequestData.map((item) => (
+                {requestingItems.map((item) => (
                   <div>
                     <ListItem key={item.id}>
                       <Grid container spacing={2} alignItems="center">
