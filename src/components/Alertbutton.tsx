@@ -1,12 +1,19 @@
-import * as React from 'react';
+import React, { useEffect, useMemo, useState } from "react";
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { useSnackbar } from "./snackbar/Snackbar";
 
 const AlertButton = (props:any) => {
+  const { showSnackbar } = useSnackbar();
+  const [active, setActive] = useState(false);
+  const classToggle = () => {
+    setActive(!active)
+  }
+
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -19,7 +26,7 @@ const AlertButton = (props:any) => {
 
   return (
     <div>
-      <Button variant="contained" onClick={handleClickOpen} color="error">
+      <Button variant={props.variant} onClick={handleClickOpen} sx={{ fontWeight: "bold" }} color="error">
         {props.title}
       </Button>
       <Dialog
@@ -38,7 +45,14 @@ const AlertButton = (props:any) => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>戻る</Button>
-          <Button onClick={handleClose} autoFocus>確定</Button>
+          <Button
+          autoFocus
+          onClick={(event) => {
+            event.preventDefault();
+            handleClose();
+            showSnackbar(`${props.title}しました`, 'warning');}}
+          >
+          確定</Button>
         </DialogActions>
       </Dialog>
     </div>
